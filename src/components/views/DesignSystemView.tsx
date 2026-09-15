@@ -77,6 +77,8 @@ const GREYSCALE_SCALE = [
 export const DesignSystemView: React.FC = () => {
   const [activeToken, setActiveToken] = useState<RealToken>(REAL_SYSTEM_TOKENS[0]);
   const [copiedHex, setCopiedHex] = useState<string | null>(null);
+  const [gridOverlayActive, setGridOverlayActive] = useState<boolean>(true);
+  const [activeToggle, setActiveToggle] = useState<boolean>(true);
 
   const copyHex = (hex: string) => {
     navigator.clipboard.writeText(hex);
@@ -112,10 +114,41 @@ export const DesignSystemView: React.FC = () => {
           </div>
         </div>
 
+        {/* Interactive Token Selector Ribbon */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+          {REAL_SYSTEM_TOKENS.map((token) => {
+            const isSelected = activeToken.id === token.id;
+            return (
+              <button
+                key={token.id}
+                onClick={() => setActiveToken(token)}
+                className={`p-3.5 text-left border transition-all duration-150 flex flex-col justify-between h-28 relative ${
+                  isSelected
+                    ? "border-ink bg-paper shadow-xs ring-1 ring-ink"
+                    : "border-line bg-[#FAF9F5] hover:border-grey-3 hover:bg-paper"
+                }`}
+              >
+                <div className="flex items-center justify-between w-full">
+                  <span
+                    className="w-4 h-4 rounded-full border border-black/10 shadow-xs"
+                    style={{ backgroundColor: token.hex }}
+                  />
+                  <span className="text-[10px] text-grey-7 font-mono">{token.hex}</span>
+                </div>
+                <div>
+                  <div className="text-xs font-medium text-ink truncate">{token.nameEn}</div>
+                  <div className="text-[10px] text-grey-7 truncate">{token.desc.slice(0, 14)}...</div>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Interactive Workbench: Left Big Showcase & Right Live Component Inspector */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Left: Base Anchor Big Card */}
+          {/* Left: Active Token Display */}
           <div
-            className={`lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between border border-line min-h-[400px] transition-all duration-300 relative overflow-hidden shadow-xs ${
+            className={`lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between border border-line min-h-[420px] transition-all duration-300 relative overflow-hidden ${
               activeToken.isDarkText ? "text-ink" : "text-paper"
             }`}
             style={{ backgroundColor: activeToken.hex }}
@@ -137,7 +170,7 @@ export const DesignSystemView: React.FC = () => {
                 <p className={`text-xs mt-1 ${activeToken.isDarkText ? "opacity-75" : "opacity-85"}`}>
                   {activeToken.nameKo}
                 </p>
-                <p className={`text-sm sm:text-base mt-6 leading-relaxed max-w-md ${activeToken.isDarkText ? "text-ink" : "text-paper"}`}>
+                <p className={`text-sm sm:text-base mt-6 leading-relaxed max-w-lg ${activeToken.isDarkText ? "text-ink" : "text-paper"}`}>
                   {activeToken.desc}
                 </p>
               </div>
@@ -173,56 +206,65 @@ export const DesignSystemView: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Real System Tokens List */}
-          <div className="lg:col-span-6 flex flex-col justify-between">
-            <div className="flex items-center justify-between text-xs text-grey-7 pb-3 border-b border-line">
-              <span>CORE SYSTEM TOKENS ({REAL_SYSTEM_TOKENS.length})</span>
-              <span>SELECT TO PREVIEW</span>
-            </div>
+          {/* Right: Live Interactive Component Preview Workbench */}
+          <div className="lg:col-span-5 border border-line bg-[#FAF9F5] p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between text-xs text-grey-7 pb-4 border-b border-line">
+                <span>LIVE COMPONENT SANDBOX</span>
+                <span className="text-[10px] uppercase text-signal font-medium">REAL-TIME INJECTION</span>
+              </div>
 
-            <div className="divide-y divide-line border-b border-line">
-              {REAL_SYSTEM_TOKENS.map((token) => {
-                const isSelected = activeToken.id === token.id;
-                return (
-                  <button
-                    key={token.id}
-                    onClick={() => setActiveToken(token)}
-                    className={`w-full py-3.5 px-3.5 flex items-center justify-between text-left transition-all duration-150 relative ${
-                      isSelected
-                        ? "bg-line/70 font-medium pl-4"
-                        : "hover:bg-line/30"
-                    }`}
+              {/* Sandbox Components that adapt to activeToken */}
+              <div className="mt-6 space-y-5">
+                {/* 1. Status Pill */}
+                <div className="p-4 bg-paper border border-line flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs text-ink font-medium">
+                    <span
+                      className="w-2.5 h-2.5 rounded-full transition-colors duration-200"
+                      style={{ backgroundColor: activeToken.hex }}
+                    />
+                    <span>Active Interface State</span>
+                  </div>
+                  <span
+                    className="px-2.5 py-0.5 text-[11px] rounded-full border font-medium transition-all"
+                    style={{
+                      borderColor: activeToken.hex,
+                      color: activeToken.hex === "#F7F6F2" ? "#2B2B2E" : activeToken.hex,
+                      backgroundColor: `${activeToken.hex}15`,
+                    }}
                   >
-                    {isSelected && (
-                      <span className="absolute left-0 top-0 bottom-0 w-1 bg-signal" />
-                    )}
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="w-4 h-4 rounded-full border border-black/10 shrink-0 transition-transform duration-150"
-                        style={{ backgroundColor: token.hex }}
-                      />
-                      <div>
-                        <div className="text-sm text-ink">{token.nameEn}</div>
-                        <div className="text-xs text-grey-7">{token.desc}</div>
-                      </div>
-                    </div>
+                    LIVE
+                  </span>
+                </div>
 
-                    <div className="flex items-center gap-2 text-xs text-grey-9">
-                      <span>{token.hex}</span>
-                      <Copy
-                        className="w-3.5 h-3.5 text-grey-7 hover:text-ink cursor-pointer transition-colors"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          copyHex(token.hex);
-                        }}
-                      />
-                    </div>
+                {/* 2. Interactive Button */}
+                <div className="p-4 bg-paper border border-line">
+                  <div className="text-[11px] text-grey-7 mb-2">Interactive Action Target</div>
+                  <button
+                    className="w-full py-2.5 text-xs font-medium transition-all duration-150 flex items-center justify-center gap-2 active:scale-98"
+                    style={{
+                      backgroundColor: activeToken.hex,
+                      color: activeToken.isDarkText ? "#2B2B2E" : "#F7F6F2",
+                      border: activeToken.hex === "#F7F6F2" ? "1px solid #E7E6E1" : "none",
+                    }}
+                  >
+                    <span>Execute Action with {activeToken.nameEn}</span>
+                    <span>→</span>
                   </button>
-                );
-              })}
+                </div>
+
+                {/* 3. Border Callout Card */}
+                <div
+                  className="p-4 bg-paper border-l-4 border-y border-r border-line text-xs space-y-1 transition-all"
+                  style={{ borderLeftColor: activeToken.hex }}
+                >
+                  <div className="font-medium text-ink">Design Token Applied</div>
+                  <div className="text-grey-7 text-[11px]">{activeToken.domain}</div>
+                </div>
+              </div>
             </div>
 
-            <div className="pt-4 flex items-center justify-between text-xs text-grey-7">
+            <div className="pt-6 border-t border-line flex items-center justify-between text-xs text-grey-7">
               <span>Primary Anchor: Signal Cobalt (#3158A6)</span>
               <span>Actual Production Verified</span>
             </div>
@@ -275,9 +317,9 @@ export const DesignSystemView: React.FC = () => {
           </div>
         </div>
 
-        <div className="divide-y divide-line border-t border-b border-line">
+        <div className="divide-y divide-line border-t border-b border-line bg-[#FAF9F5]">
           {/* Row 1: Wordmark */}
-          <div className="py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+          <div className="p-8 sm:p-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline border-b border-line">
             <div className="md:col-span-3 text-xs text-grey-7">Wordmark</div>
             <div className="md:col-span-9">
               <div className="text-5xl sm:text-6xl font-normal tracking-tight text-ink">
@@ -287,7 +329,7 @@ export const DesignSystemView: React.FC = () => {
           </div>
 
           {/* Row 2: Typography (Latin) */}
-          <div className="py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+          <div className="p-8 sm:p-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline border-b border-line">
             <div className="md:col-span-3 text-xs text-grey-7">Typography (Latin)</div>
             <div className="md:col-span-9 space-y-4">
               <div className="text-2xl sm:text-3xl font-normal text-ink">Asta Sans</div>
@@ -300,7 +342,7 @@ export const DesignSystemView: React.FC = () => {
           </div>
 
           {/* Row 3: Multilingual CJK */}
-          <div className="py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+          <div className="p-8 sm:p-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
             <div className="md:col-span-3 text-xs text-grey-7">Multilingual CJK</div>
             <div className="md:col-span-9 space-y-6">
               <div>
@@ -334,7 +376,15 @@ export const DesignSystemView: React.FC = () => {
       <section className="py-14">
         <div className="pb-8 border-b border-line mb-8">
           <div className="text-xs uppercase text-grey-7 mb-1">SURFACE SYSTEM 01 · 12PX CONTINUOUS HAIRLINE GRID</div>
-          <h2 className="text-2xl sm:text-3xl font-normal">12px Linear Marking Grid</h2>
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+            <h2 className="text-2xl sm:text-3xl font-normal">12px Linear Marking Grid</h2>
+            <button
+              onClick={() => setGridOverlayActive(!gridOverlayActive)}
+              className="text-xs px-3 py-1.5 border border-line bg-paper text-grey-9 hover:text-ink hover:border-ink transition-colors w-fit"
+            >
+              {gridOverlayActive ? "✓ Grid Overlay Active" : "Grid Overlay Inactive"}
+            </button>
+          </div>
           <p className="text-sm text-grey-9 mt-2 max-w-3xl leading-relaxed">
             모눈종이와 천문 좌표계의 정밀 눈금에서 착안하여, 12px 단위의 일관된 공간 비례를 구축합니다.
           </p>
@@ -407,15 +457,25 @@ export const DesignSystemView: React.FC = () => {
                     <span>Primary Action</span>
                     <span>→</span>
                   </button>
-                  <button className="flex-1 py-3 bg-paper border border-line text-xs text-ink hover:border-ink transition-colors active:scale-98">
+                  <button
+                    onClick={() => setActiveToggle(!activeToggle)}
+                    className={`flex-1 py-3 border text-xs transition-colors active:scale-98 ${
+                      activeToggle
+                        ? "bg-paper border-ink text-ink font-medium"
+                        : "bg-paper border-line text-grey-9 hover:border-ink"
+                    }`}
+                  >
                     Outlined Control
                   </button>
                 </div>
 
                 <div className="flex gap-3 text-xs">
-                  <div className="flex-1 p-2.5 bg-paper border border-line flex items-center justify-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-signal" />
-                    <span>SYSTEM_READY: OK</span>
+                  <div
+                    onClick={() => setActiveToggle(!activeToggle)}
+                    className="flex-1 p-2.5 bg-paper border border-line flex items-center justify-center gap-2 cursor-pointer hover:border-grey-3 transition-colors"
+                  >
+                    <span className={`w-2 h-2 rounded-full transition-colors ${activeToggle ? "bg-signal" : "bg-grey-7"}`} />
+                    <span>SYSTEM_READY: {activeToggle ? "OK" : "STANDBY"}</span>
                   </div>
                   <div className="flex-1 p-2.5 bg-paper border border-line flex items-center justify-center text-grey-7">
                     <span>SPEC_TAG: ASDS-v2.0</span>

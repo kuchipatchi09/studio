@@ -76,15 +76,15 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({ onNavigateToDesign }
 
       {/* 2x2 Box Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-        {projects.map((p) => (
+        {projects.map((p, pIndex) => (
           <div
             key={p.id}
-            className="border border-line bg-[#FAF9F5] p-8 sm:p-10 flex flex-col justify-between min-h-[390px] hover:border-grey-3 transition-all duration-200 hover:shadow-xs group relative"
+            className="border border-line bg-[#FAF9F5] p-8 sm:p-10 flex flex-col justify-between min-h-[440px] hover:border-grey-3 transition-all duration-200 hover:shadow-xs group relative"
           >
             <div>
               {/* Top Meta Line */}
               <div className="flex items-center justify-between text-xs text-grey-7 pb-4 mb-6 border-b border-line">
-                <span className="font-medium text-ink flex items-center gap-1.5">
+                <span className="font-medium text-ink flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-signal" />
                   <span>{p.id}</span>
                 </span>
@@ -102,21 +102,60 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({ onNavigateToDesign }
 
             <div className="mt-8 space-y-6">
               {/* Center Signature Preview Box */}
-              <div className="p-4 border border-line bg-paper flex items-center justify-center min-h-[64px] transition-colors group-hover:border-grey-3">
-                {p.previewType === "text" && (
-                  <span className="text-xs font-medium text-grey-9 text-center tracking-tight">
-                    {p.previewContent}
-                  </span>
+              <div className="p-4 border border-line bg-paper flex flex-col justify-center min-h-[90px] transition-colors group-hover:border-grey-3">
+                {pIndex === 0 && (
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-[11px] text-grey-7">
+                      <span className="flex items-center gap-1.5 text-ink font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-signal" />
+                        <span>지금 수업: 7교시 한국사</span>
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 border border-line bg-paper text-grey-9">2학년 2반</span>
+                    </div>
+                    <div className="text-xs font-medium text-grey-9 text-center tracking-tight pt-1">
+                      {p.previewContent}
+                    </div>
+                  </div>
                 )}
-                {p.previewType === "dots" && (
-                  <div className="flex items-center gap-2.5">
-                    {p.previewDots?.map((dot, idx) => (
-                      <span
-                        key={idx}
-                        className="w-3.5 h-3.5 rounded-full border border-black/10 transition-transform duration-200 hover:scale-125"
-                        style={{ backgroundColor: dot }}
-                      />
-                    ))}
+
+                {pIndex === 1 && (
+                  <div className="space-y-2">
+                    <div className="grid grid-cols-12 gap-1 text-[10px] text-center font-mono text-grey-7">
+                      <span className="col-span-8 p-1 bg-line/40 border border-line text-ink">70% Macroscopic Grid</span>
+                      <span className="col-span-4 p-1 bg-signal/10 border border-signal/30 text-signal font-medium">30% Spec</span>
+                    </div>
+                    <div className="text-xs font-medium text-grey-9 text-center tracking-tight pt-1">
+                      {p.previewContent}
+                    </div>
+                  </div>
+                )}
+
+                {pIndex === 2 && (
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-[11px] px-2 py-1 bg-line/30 border border-line text-grey-9">
+                      <span>스터디룸 3 · 19:00 - 21:00</span>
+                      <span className="text-signal font-medium">예약 완료</span>
+                    </div>
+                    <div className="text-xs font-medium text-grey-9 text-center tracking-tight pt-1">
+                      {p.previewContent}
+                    </div>
+                  </div>
+                )}
+
+                {pIndex === 3 && (
+                  <div className="space-y-2.5">
+                    <div className="flex items-center justify-center gap-2.5">
+                      {p.previewDots?.map((dot, idx) => (
+                        <span
+                          key={idx}
+                          className="w-4 h-4 rounded-full border border-black/10 transition-transform duration-200 hover:scale-125 cursor-pointer"
+                          style={{ backgroundColor: dot }}
+                        />
+                      ))}
+                    </div>
+                    <div className="text-xs font-medium text-grey-9 text-center tracking-tight">
+                      Actual Production Tokens (6)
+                    </div>
                   </div>
                 )}
               </div>
