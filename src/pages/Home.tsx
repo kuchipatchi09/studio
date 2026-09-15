@@ -4,6 +4,7 @@ import { OverviewView } from "../components/views/OverviewView";
 import { ProjectsView } from "../components/views/ProjectsView";
 import { DesignSystemView } from "../components/views/DesignSystemView";
 import { SpecView } from "../components/views/SpecView";
+import { AsteriskLiveView } from "../components/views/AsteriskLiveView";
 import { SiteFooter } from "../components/SiteFooter";
 
 export const Home: React.FC = () => {
@@ -13,7 +14,13 @@ export const Home: React.FC = () => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace("#", "");
-      if (hash === "projects" || hash === "design" || hash === "spec" || hash === "overview") {
+      if (
+        hash === "projects" ||
+        hash === "design" ||
+        hash === "spec" ||
+        hash === "asterisk" ||
+        hash === "overview"
+      ) {
         setActiveTab(hash as TabType);
       }
     };
@@ -39,6 +46,7 @@ export const Home: React.FC = () => {
           {activeTab === "projects" && <ProjectsView />}
           {activeTab === "design" && <DesignSystemView />}
           {activeTab === "spec" && <SpecView />}
+          {activeTab === "asterisk" && <AsteriskLiveView />}
         </main>
       </div>
 

@@ -1,7 +1,6 @@
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
 
-export type TabType = "overview" | "projects" | "design" | "spec";
+export type TabType = "overview" | "projects" | "design" | "spec" | "asterisk";
 
 interface SiteHeaderProps {
   activeTab: TabType;
@@ -67,15 +66,17 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeTab, onTabChange }
             스펙
           </button>
 
-          <a
-            href="https://cnsh.life"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 px-3 py-1.5 border border-line text-grey-9 hover:text-signal hover:border-signal transition-all"
+          <button
+            onClick={() => onTabChange("asterisk")}
+            className={`px-3 py-1.5 rounded-none border transition-all flex items-center gap-1 ${
+              activeTab === "asterisk"
+                ? "border-signal bg-signal text-paper font-medium"
+                : "border-line text-grey-9 hover:text-signal hover:border-signal"
+            }`}
           >
             <span>애스터리스크</span>
-            <ArrowUpRight className="w-3 h-3 text-signal" />
-          </a>
+            <span className="text-[10px]">★</span>
+          </button>
         </nav>
       </div>
     </header>
