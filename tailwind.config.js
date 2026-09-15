@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+﻿/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -11,6 +11,8 @@ export default {
         ink: '#2B2B2E',
         signal: '#3158A6',
         line: '#E7E6E1',
+        mugwort: '#556042',
+        'grey-1': '#E7E6E1',
         'grey-3': '#C2C1BB',
         'grey-7': '#888783',
         'grey-9': '#535356',
@@ -18,23 +20,20 @@ export default {
       },
       fontFamily: {
         sans: [
-          '"Asta Sans"',
+          '"IBM Plex Sans"',
           '"Pretendard Variable"',
           'Pretendard',
           '-apple-system',
           'BlinkMacSystemFont',
-          'system-ui',
-          'Roboto',
-          '"Helvetica Neue"',
-          '"Segoe UI"',
-          '"Apple SD Gothic Neo"',
-          '"Noto Sans KR"',
           'sans-serif'
         ],
-      },
-      lineHeight: {
-        tightest: '0.92',
-        tight: '1.05',
+        mono: [
+          '"IBM Plex Mono"',
+          'ui-monospace',
+          'SFMono-Regular',
+          'Menlo',
+          'monospace'
+        ],
       },
       maxWidth: {
         'content': '1440px',
