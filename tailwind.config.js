@@ -20,7 +20,8 @@ export default {
       },
       fontFamily: {
         sans: [
-          '"IBM Plex Sans"',
+          '"Asta Sans"',
+          '"Aster Sans"',
           '"Pretendard Variable"',
           'Pretendard',
           '-apple-system',

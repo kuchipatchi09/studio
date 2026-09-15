@@ -242,7 +242,7 @@ export const DesignSystemView: React.FC = () => {
         <div className="pb-6 border-b border-line mb-8">
           <div className="text-xs font-mono uppercase text-grey-7">02 // Typography System</div>
           <h2 className="text-xl sm:text-2xl font-normal mt-1">Unified Type Architecture</h2>
-          <p className="text-xs font-mono text-grey-7 mt-1">Specimen // IBM Plex Sans &amp; Pretendard</p>
+          <p className="text-xs font-mono text-grey-7 mt-1">Specimen // Asta Sans &amp; Pretendard</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -257,7 +257,7 @@ export const DesignSystemView: React.FC = () => {
 
             <div className="border border-line p-6 space-y-4">
               <span className="text-xs font-mono text-grey-7 uppercase block">Typography (Latin)</span>
-              <div className="text-xl font-normal text-ink">IBM Plex Sans</div>
+              <div className="text-xl font-normal text-ink">Asta Sans (Aster Sans)</div>
               <p className="text-sm font-mono text-grey-7 tracking-wide break-all">
                 AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz<br />
                 0123456789 !?,.;:--&amp;€$@%*

@@ -32,7 +32,7 @@ export const SpecView: React.FC = () => {
             </div>
             <div className="flex justify-between py-2 border-b border-line/60">
               <span className="text-grey-7">Typography Family</span>
-              <span className="text-ink font-medium">IBM Plex Sans &amp; Pretendard</span>
+              <span className="text-ink font-medium">Asta Sans (Aster Sans) &amp; Pretendard</span>
             </div>
             <div className="flex justify-between py-2 border-b border-line/60">
               <span className="text-grey-7">Grid Baseline</span>
