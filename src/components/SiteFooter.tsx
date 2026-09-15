@@ -18,7 +18,7 @@ export const SiteFooter: React.FC<{ onTabChange?: (tab: TabType) => void }> = ({
               <button onClick={() => onTabChange("projects")} className="hover:text-signal transition-colors">프로젝트</button>
               <button onClick={() => onTabChange("design")} className="hover:text-signal transition-colors">디자인</button>
               <button onClick={() => onTabChange("spec")} className="hover:text-signal transition-colors">스펙</button>
-              <button onClick={() => onTabChange("asterisk")} className="hover:text-signal transition-colors">애스터리스크</button>
+              <button onClick={() => onTabChange("asterisk")} className="hover:text-signal transition-colors">asterisk*</button>
             </div>
           )}
           <span>© 2026 asterstudio</span>

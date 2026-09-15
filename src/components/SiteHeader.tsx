@@ -68,14 +68,14 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeTab, onTabChange }
 
           <button
             onClick={() => onTabChange("asterisk")}
-            className={`px-3 py-1.5 rounded-none border transition-all flex items-center gap-1 ${
+            className={`px-3 py-1.5 rounded-none border transition-all flex items-center gap-0.5 ${
               activeTab === "asterisk"
                 ? "border-signal bg-signal text-paper font-medium"
                 : "border-line text-grey-9 hover:text-signal hover:border-signal"
             }`}
           >
-            <span>애스터리스크</span>
-            <span className="text-[10px]">★</span>
+            <span>asterisk</span>
+            <span className="font-bold text-xs">*</span>
           </button>
         </nav>
       </div>

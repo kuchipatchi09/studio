@@ -11,7 +11,7 @@ export const AsteriskLiveView: React.FC = () => {
       <div className="pb-8 border-b border-line flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <div className="text-xs uppercase text-signal font-semibold mb-2">
-            03 // Live Architecture Showcase
+            03 Live Architecture Showcase
           </div>
           <h1 className="text-3xl sm:text-5xl font-normal tracking-tight">
             asterisk*
@@ -23,7 +23,7 @@ export const AsteriskLiveView: React.FC = () => {
 
         <div className="flex items-center gap-3">
           <a
-            href="https://cnsh.life"
+            href="https:·cnsh.life"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 py-2 bg-ink text-paper text-xs font-medium hover:bg-signal transition-colors"

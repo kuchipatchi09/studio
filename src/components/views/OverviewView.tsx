@@ -15,10 +15,9 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
         <ConstellationField scrollProgress={0.4} />
       </div>
 
-      {/* Content Container (z-10 for interactivity) */}
+      {/* Content Container */}
       <div className="relative z-10">
-
-        {/* Hero Display Typography: Scaled down to elegant proportion */}
+        {/* Hero Display Typography */}
         <div className="py-16 sm:py-24 border-b border-line">
           <div className="max-w-4xl">
             <div className="text-xs uppercase tracking-widest text-signal font-semibold mb-4">
@@ -37,10 +36,10 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
           </div>
         </div>
 
-        {/* Philosophy Statement */}
+        {/* Philosophy Statement: No · */}
         <div className="py-16 border-b border-line grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-4 text-xs uppercase tracking-wider text-grey-7">
-            01 // 철학
+            01 Philosophy
           </div>
 
           <div className="lg:col-span-8 space-y-5">
@@ -61,13 +60,13 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
           </div>
         </div>
 
-        {/* Quick Navigation Matrix */}
+        {/* Quick Navigation Matrix: No · */}
         <div className="py-14 grid grid-cols-1 md:grid-cols-3 gap-6">
           <button
             onClick={() => onTabChange("projects")}
             className="border border-line p-7 text-left hover:border-ink transition-colors flex flex-col justify-between h-44 bg-paper/90 backdrop-blur-xs group"
           >
-            <div className="text-xs text-grey-7">01 // WORKS</div>
+            <div className="text-xs text-grey-7">01 WORKS</div>
             <div>
               <div className="text-lg font-medium text-ink group-hover:text-signal transition-colors">
                 프로젝트 아카이브 →
@@ -80,7 +79,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
             onClick={() => onTabChange("design")}
             className="border border-line p-7 text-left hover:border-ink transition-colors flex flex-col justify-between h-44 bg-paper/90 backdrop-blur-xs group"
           >
-            <div className="text-xs text-grey-7">02 // DESIGN SYSTEM</div>
+            <div className="text-xs text-grey-7">02 DESIGN SYSTEM</div>
             <div>
               <div className="text-lg font-medium text-ink group-hover:text-signal transition-colors">
                 디자인 시스템 (ASDS) →
@@ -94,7 +93,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
             className="border border-line p-7 text-left hover:border-signal transition-colors flex flex-col justify-between h-44 bg-paper/90 backdrop-blur-xs group"
           >
             <div className="flex items-center justify-between text-xs text-grey-7">
-              <span>03 // LIVE PLATFORM</span>
+              <span>03 LIVE PLATFORM</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-grey-7 group-hover:text-signal" />
             </div>
             <div>

@@ -42,7 +42,7 @@ export const DesignSystemView: React.FC = () => {
       {/* Top Header */}
       <div className="pb-8 border-b border-line">
         <div className="text-xs uppercase text-grey-7 mb-2">
-          01 // Design Specification
+          01 Design Specification
         </div>
         <h1 className="text-3xl sm:text-5xl font-normal tracking-tight mb-3">
           asterstudio Design System (ASDS)
@@ -52,11 +52,11 @@ export const DesignSystemView: React.FC = () => {
         </p>
       </div>
 
-      {/* 01 // COLOUR TOKENS */}
+      {/* 01 COLOUR TOKENS */}
       <section className="py-14 border-b border-line">
         <div className="flex items-center justify-between pb-6 border-b border-line mb-8">
           <div>
-            <div className="text-xs uppercase text-grey-7">01 // Colour Tokens</div>
+            <div className="text-xs uppercase text-grey-7">01 Colour Tokens</div>
             <h2 className="text-2xl font-normal mt-1">Chromatic Architecture</h2>
           </div>
           <div className="text-xs text-grey-7 hidden sm:block">
@@ -104,7 +104,7 @@ export const DesignSystemView: React.FC = () => {
           {/* 7 Spectrum Tones */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div className="flex items-center justify-between text-xs text-grey-7 pb-3 border-b border-line">
-              <span>ACCENT SPECTRUM // 7 HERITAGE TONES</span>
+              <span>ACCENT SPECTRUM · 7 HERITAGE TONES</span>
               <span>SELECT TO PREVIEW</span>
             </div>
 
@@ -184,15 +184,15 @@ export const DesignSystemView: React.FC = () => {
         </div>
       </section>
 
-      {/* 02 // TYPOGRAPHY SYSTEM (Exact recreation of user reference image 1) */}
+      {/* 02 TYPOGRAPHY SYSTEM (Exact recreation of user reference image 1) */}
       <section className="py-14 border-b border-line">
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-line mb-8 gap-2">
           <div>
-            <div className="text-xs uppercase text-grey-7">02 // Typography System</div>
+            <div className="text-xs uppercase text-grey-7">02 Typography System</div>
             <h2 className="text-2xl font-normal mt-1">Unified Type Architecture</h2>
           </div>
           <div className="text-xs text-grey-7">
-            Specimen // Asta Sans
+            Specimen · Asta Sans
           </div>
         </div>
 
@@ -225,7 +225,7 @@ export const DesignSystemView: React.FC = () => {
             <div className="md:col-span-3 text-xs text-grey-7">Multilingual CJK</div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <div className="text-xs text-grey-7 mb-2">KOREAN // 한국어</div>
+                <div className="text-xs text-grey-7 mb-2">KOREAN · 한국어</div>
                 <div className="text-xl sm:text-2xl font-normal text-ink mb-2">
                   가나다라마바사아자차카타파하
                 </div>
@@ -238,7 +238,7 @@ export const DesignSystemView: React.FC = () => {
               </div>
 
               <div className="pt-4 border-t border-line/60">
-                <div className="text-xs text-grey-7 mb-2">JAPANESE // 日本語</div>
+                <div className="text-xs text-grey-7 mb-2">JAPANESE · 日本語</div>
                 <div className="text-lg font-normal text-ink mb-1">
                   あいうえおかきくけこ アイウエオカキクケコ
                 </div>
@@ -251,10 +251,10 @@ export const DesignSystemView: React.FC = () => {
         </div>
       </section>
 
-      {/* 03 // STRUCTURE & PRIMITIVES (Exact recreation of user reference image 2) */}
+      {/* 03 STRUCTURE & PRIMITIVES (Exact recreation of user reference image 2) */}
       <section className="py-14">
         <div className="pb-8 border-b border-line mb-8">
-          <div className="text-xs uppercase text-grey-7 mb-1">SURFACE SYSTEM // 01 // 12PX CONTINUOUS HAIRLINE GRID</div>
+          <div className="text-xs uppercase text-grey-7 mb-1">SURFACE SYSTEM · 01 12PX CONTINUOUS HAIRLINE GRID</div>
           <h2 className="text-2xl sm:text-3xl font-normal">12px Linear Marking Grid</h2>
           <p className="text-sm text-grey-9 mt-2 max-w-3xl leading-relaxed">
             모눈종이와 오실로스코프 화면의 정밀 눈금에서 영감을 받았습니다. 12px 간격으로 1px 헤어라인을 연속 전개하여 모호한 장식 대신 물리적인 측정 공간감을 형성합니다.
@@ -285,7 +285,7 @@ export const DesignSystemView: React.FC = () => {
           {/* Card 1: 1px Hairline Boundary */}
           <div className="border border-line bg-[#FAF9F5] p-8 flex flex-col justify-between">
             <div>
-              <div className="text-xs uppercase text-grey-7 mb-1">BORDER HIERARCHY // 02</div>
+              <div className="text-xs uppercase text-grey-7 mb-1">BORDER HIERARCHY · 02</div>
               <h3 className="text-xl font-normal mb-3">1px Hairline Boundary</h3>
               <p className="text-xs text-grey-9 leading-relaxed mb-6">
                 인위적인 드롭 섀도우(Drop Shadow)를 일체 사용하지 않고, 오직 1px의 명확한 테두리와 분할선으로 모든 공간과 데이터의 위계를 구분합니다.
@@ -293,15 +293,15 @@ export const DesignSystemView: React.FC = () => {
 
               <div className="space-y-2">
                 <div className="flex justify-between items-center p-3 bg-paper border border-line text-xs">
-                  <span className="text-ink">01 // Outer Container Boundary</span>
+                  <span className="text-ink">01 Outer Container Boundary</span>
                   <span className="text-grey-7">1px solid (grey1 / grey9)</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-paper border border-line text-xs">
-                  <span className="text-ink">02 // Internal Divide Line</span>
+                  <span className="text-ink">02 Internal Divide Line</span>
                   <span className="text-grey-7">divide-y (grey1 / grey9)</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-paper border border-signal text-xs">
-                  <span className="text-signal font-medium">03 // Active Focus &amp; Hover</span>
+                  <span className="text-signal font-medium">03 Active Focus &amp; Hover</span>
                   <span className="text-signal font-medium">1px solid #3158A6</span>
                 </div>
               </div>
@@ -316,7 +316,7 @@ export const DesignSystemView: React.FC = () => {
           {/* Card 2: Control Primitives */}
           <div className="border border-line bg-[#FAF9F5] p-8 flex flex-col justify-between">
             <div>
-              <div className="text-xs uppercase text-grey-7 mb-1">CONTROL PRIMITIVES // 03</div>
+              <div className="text-xs uppercase text-grey-7 mb-1">CONTROL PRIMITIVES · 03</div>
               <h3 className="text-xl font-normal mb-3">Tactile Control Triggers</h3>
               <p className="text-xs text-grey-9 leading-relaxed mb-6">
                 아날로그 물리 스위치를 누르는 듯한 즉각적이고 명확한 피드백을 전달하는 핵심 컴포넌트 프리미티브입니다.

@@ -35,7 +35,7 @@ export const SpecView: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-8 border-b border-line gap-3">
         <div>
           <div className="text-xs uppercase text-grey-7 mb-1">
-            04 // Developer &amp; Credits
+            04 Developer &amp; Credits
           </div>
           <h1 className="text-3xl sm:text-5xl font-normal tracking-tight">
             Credit &amp; Developer Info

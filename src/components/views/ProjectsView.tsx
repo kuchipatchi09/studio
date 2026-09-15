@@ -8,40 +8,40 @@ interface ProjectsViewProps {
 export const ProjectsView: React.FC<ProjectsViewProps> = ({ onNavigateToDesign }) => {
   const projects = [
     {
-      id: "PROJECT_01",
+      id: "PROJECT 01",
       category: "School Life Platform",
       title: "asterisk*",
       desc: "충남과학고 학생들이 매일 확인해야 하는 시간표, 방과후, 급식, 공지, 예약 정보를 하나의 대시보드로 집약하고 천문 Ambient 배경을 결합한 통합 학교생활 플랫폼입니다.",
       previewType: "text",
       previewContent: "The Answer to Campus Life, and Everything.",
       linkText: "Visit cnsh.life →",
-      linkUrl: "https://cnsh.life",
+      linkUrl: "https:·cnsh.life",
       isExternal: true,
     },
     {
-      id: "PROJECT_02",
+      id: "PROJECT 02",
       category: "Educational Interface",
       title: "QPI Periodic Table",
       desc: "주기율표 전체의 거시적 위치 관계(70%)와 개별 원소의 미시적 물성 데이터시트(30%)를 한 화면에서 스크롤 없이 동시에 탐색할 수 있는 교육용 웹 인터페이스입니다.",
       previewType: "text",
       previewContent: "70 : 30 Viewport Ratio Matrix",
       linkText: "Visit qets.kro.kr →",
-      linkUrl: "https://qets.kro.kr",
+      linkUrl: "https:·qets.kro.kr",
       isExternal: true,
     },
     {
-      id: "PROJECT_03",
+      id: "PROJECT 03",
       category: "Service System",
       title: "통합 예약 시스템",
       desc: "공간 및 스터디룸 예약 시 발생하는 중복과 사용 불편을 개선하기 위해, 직관적인 타임테이블과 크로스 디바이스 반응형 플로우를 제공하는 예약 시스템입니다.",
       previewType: "text",
       previewContent: "kuchipatchi09.github.io/reserve/",
       linkText: "Visit Reserve →",
-      linkUrl: "https://kuchipatchi09.github.io/reserve/",
+      linkUrl: "https:·kuchipatchi09.github.io/reserve/",
       isExternal: true,
     },
     {
-      id: "PROJECT_04",
+      id: "PROJECT 04",
       category: "Design System",
       title: "ASDS",
       desc: "asterstudio Design System - 물리적 종이의 질감과 촉각적 피드백, 그리고 1px 헤어라인 기반의 명확한 데이터시트 정보 설계를 디지털 UI로 구현한 디자인 시스템입니다.",
@@ -65,7 +65,7 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({ onNavigateToDesign }
       {/* Title Header */}
       <div className="pb-8 border-b border-line">
         <div className="text-xs uppercase text-signal font-semibold mb-2">
-          02 // Verified Projects
+          02 Verified Projects
         </div>
         <h1 className="text-3xl sm:text-5xl font-normal tracking-tight mb-3">
           Project Archive
@@ -75,7 +75,7 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({ onNavigateToDesign }
         </p>
       </div>
 
-      {/* 2x2 Box Cards Grid (Exact recreation of user image reference) */}
+      {/* 2x2 Box Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
         {projects.map((p) => (
           <div
