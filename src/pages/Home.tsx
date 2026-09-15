@@ -43,7 +43,7 @@ export const Home: React.FC = () => {
 
         <main>
           {activeTab === "overview" && <OverviewView onTabChange={handleTabChange} />}
-          {activeTab === "projects" && <ProjectsView />}
+          {activeTab === "projects" && <ProjectsView onNavigateToDesign={() => handleTabChange("design")} />}
           {activeTab === "design" && <DesignSystemView />}
           {activeTab === "spec" && <SpecView />}
           {activeTab === "asterisk" && <AsteriskLiveView />}
