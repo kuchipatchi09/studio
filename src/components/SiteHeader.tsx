@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export type TabType = "overview" | "projects" | "design" | "spec" | "asterisk";
 
@@ -8,17 +8,41 @@ interface SiteHeaderProps {
 }
 
 export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeTab, onTabChange }) => {
+  const [timeStr, setTimeStr] = useState<string>("");
+
+  useEffect(() => {
+    const update = () => {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, "0");
+      const m = String(now.getMinutes()).padStart(2, "0");
+      const s = String(now.getSeconds()).padStart(2, "0");
+      setTimeStr(`${h}:${m}:${s} KST`);
+    };
+    update();
+    const interval = setInterval(update, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/90 backdrop-blur-md border-b border-line font-sans transition-colors duration-200">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/85 backdrop-blur-md border-b border-line font-sans transition-all duration-200">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 h-14 flex items-center justify-between">
-        {/* Brand Wordmark */}
-        <button
-          onClick={() => onTabChange("overview")}
-          className="group flex items-center gap-1 text-base tracking-tight font-medium text-ink focus-visible:outline-none"
-        >
-          <span>asterstudio</span>
-          <span className="text-signal font-bold transition-transform duration-200 group-hover:scale-125">*</span>
-        </button>
+        {/* Brand Wordmark & Live Telemetry */}
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => onTabChange("overview")}
+            className="group flex items-center gap-1 text-base tracking-tight font-medium text-ink focus-visible:outline-none"
+          >
+            <span>asterstudio</span>
+            <span className="text-signal font-bold transition-transform duration-200 group-hover:scale-125">*</span>
+          </button>
+
+          {timeStr && (
+            <span className="hidden md:flex items-center gap-2 text-[11px] text-grey-7 font-mono border-l border-line pl-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-signal animate-pulse" />
+              <span>{timeStr}</span>
+            </span>
+          )}
+        </div>
 
         {/* Navigation Tabs */}
         <nav className="flex items-center gap-1 sm:gap-1.5 text-xs" aria-label="Main Navigation">

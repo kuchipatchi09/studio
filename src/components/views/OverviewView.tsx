@@ -11,19 +11,31 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
   return (
     <div className="relative min-h-[90vh] pt-20 pb-28 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink font-sans">
       {/* Interactive Constellation Field Layer */}
-      <div className="absolute inset-0 z-0 opacity-75 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 z-0 opacity-80 pointer-events-none overflow-hidden">
         <ConstellationField scrollProgress={0.4} />
       </div>
 
       {/* Content Container */}
       <div className="relative z-10">
-        {/* Hero Display Typography */}
-        <div className="py-16 sm:py-24 border-b border-line relative">
-          {/* Subtle optical corner crosshair */}
-          <div className="absolute top-0 right-0 text-[10px] text-grey-7 uppercase tracking-widest hidden sm:block">
-            LAT 36.45°N · CNSH
+        {/* Top Studio Telemetry Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-4 py-3 border-b border-line text-[11px] text-grey-7 font-mono mb-8">
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-1.5 text-ink font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-signal animate-pulse" />
+              <span>SYSTEM: ONLINE</span>
+            </span>
+            <span className="hidden sm:inline text-grey-3">|</span>
+            <span className="hidden sm:inline">CNSH.LIFE ECOSYSTEM</span>
           </div>
+          <div className="flex items-center gap-4">
+            <span>LAT 36.45°N · LON 127.12°E</span>
+            <span className="hidden sm:inline text-grey-3">|</span>
+            <span className="text-signal font-medium">SPEC ASDS-2026</span>
+          </div>
+        </div>
 
+        {/* Hero Display Typography */}
+        <div className="py-12 sm:py-20 border-b border-line relative">
           <div className="max-w-4xl">
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-signal font-semibold mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-signal animate-pulse" />
@@ -71,11 +83,14 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
         <div className="py-14 grid grid-cols-1 md:grid-cols-3 gap-6">
           <button
             onClick={() => onTabChange("projects")}
-            className="border border-line p-7 text-left hover:border-ink transition-all duration-200 flex flex-col justify-between h-44 bg-[#FAF9F5] hover:shadow-xs group relative overflow-hidden"
+            className="border border-line p-8 text-left transition-all duration-200 flex flex-col justify-between h-48 bg-[#FAF9F5] hover:border-grey-3 hover:shadow-xs group relative overflow-hidden"
           >
             <div className="flex items-center justify-between text-xs text-grey-7">
-              <span>01 WORKS</span>
-              <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity text-signal">EXPLORE</span>
+              <span className="font-medium text-ink flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-signal" />
+                <span>01 WORKS</span>
+              </span>
+              <span className="text-[10px] text-signal font-mono opacity-0 group-hover:opacity-100 transition-opacity">EXPLORE →</span>
             </div>
             <div>
               <div className="text-lg font-medium text-ink group-hover:text-signal transition-colors">
@@ -87,11 +102,14 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
 
           <button
             onClick={() => onTabChange("design")}
-            className="border border-line p-7 text-left hover:border-ink transition-all duration-200 flex flex-col justify-between h-44 bg-[#FAF9F5] hover:shadow-xs group relative overflow-hidden"
+            className="border border-line p-8 text-left transition-all duration-200 flex flex-col justify-between h-48 bg-[#FAF9F5] hover:border-grey-3 hover:shadow-xs group relative overflow-hidden"
           >
             <div className="flex items-center justify-between text-xs text-grey-7">
-              <span>02 DESIGN SYSTEM</span>
-              <span className="text-[10px] opacity-0 group-hover:opacity-100 transition-opacity text-signal">ASDS</span>
+              <span className="font-medium text-ink flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-signal" />
+                <span>02 DESIGN SYSTEM</span>
+              </span>
+              <span className="text-[10px] text-signal font-mono opacity-0 group-hover:opacity-100 transition-opacity">SPEC →</span>
             </div>
             <div>
               <div className="text-lg font-medium text-ink group-hover:text-signal transition-colors">
@@ -103,10 +121,13 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
 
           <button
             onClick={() => onTabChange("asterisk")}
-            className="border border-line p-7 text-left hover:border-signal transition-all duration-200 flex flex-col justify-between h-44 bg-[#FAF9F5] hover:shadow-xs group relative overflow-hidden"
+            className="border border-line p-8 text-left transition-all duration-200 flex flex-col justify-between h-48 bg-[#FAF9F5] hover:border-signal hover:shadow-xs group relative overflow-hidden"
           >
             <div className="flex items-center justify-between text-xs text-grey-7">
-              <span>03 LIVE PLATFORM</span>
+              <span className="font-medium text-ink flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-signal" />
+                <span>03 LIVE PLATFORM</span>
+              </span>
               <ArrowUpRight className="w-3.5 h-3.5 text-grey-7 group-hover:text-signal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
             </div>
             <div>

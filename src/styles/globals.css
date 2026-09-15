@@ -28,7 +28,7 @@
     min-height: 100vh;
   }
 
-  /* Paper grain overlay */
+  /* Analog Paper Grain Texture */
   body::before {
     content: "";
     position: fixed;
@@ -36,14 +36,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.025;
+    opacity: 0.03;
     pointer-events: none;
     z-index: 999;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
   ::selection {
-    background-color: rgba(49, 88, 166, 0.2);
+    background-color: rgba(49, 88, 166, 0.22);
     color: var(--color-ink);
   }
 
@@ -55,8 +55,8 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -65,68 +65,57 @@
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-grey-3);
-  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-grey-7);
+  background: var(--color-signal);
 }
 
-/* Custom editorial styles */
-.hairline-b {
-  border-bottom: 1px solid var(--color-line);
-}
+/* Precision Hairlines */
+.hairline-b { border-bottom: 1px solid var(--color-line); }
+.hairline-t { border-top: 1px solid var(--color-line); }
+.hairline-r { border-right: 1px solid var(--color-line); }
+.hairline-l { border-left: 1px solid var(--color-line); }
+.hairline-all { border: 1px solid var(--color-line); }
 
-.hairline-t {
-  border-top: 1px solid var(--color-line);
-}
-
-.hairline-r {
-  border-right: 1px solid var(--color-line);
-}
-
-.hairline-l {
-  border-left: 1px solid var(--color-line);
-}
-
-.hairline-all {
-  border: 1px solid var(--color-line);
-}
-
-/* Subtle 12px Grid Background Utility */
-.bg-grid-12 {
-  background-size: 24px 24px;
-  background-image: 
-    linear-gradient(to right, rgba(231, 230, 225, 0.45) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(231, 230, 225, 0.45) 1px, transparent 1px);
-}
-
-/* Interactive Card Transitions */
+/* World-class Studio Card Styling */
 .studio-card {
   position: relative;
   background-color: #FAF9F5;
   border: 1px solid var(--color-line);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 1px 3px rgba(0, 0, 0, 0.02);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .studio-card:hover {
   border-color: var(--color-grey-3);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 6px 24px -6px rgba(43, 43, 46, 0.06);
-  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 8px 30px -8px rgba(43, 43, 46, 0.08);
+  transform: translateY(-2px);
 }
 
-/* Ambient Celestial Glow */
-.ambient-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(49, 88, 166, 0.08) 0%, rgba(247, 246, 242, 0) 70%);
+/* Subtle 12px Grid Background */
+.bg-grid-12 {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(231, 230, 225, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231, 230, 225, 0.5) 1px, transparent 1px);
 }
 
-/* Constellation subtle glow */
+/* Glassmorphism Floating Pill */
+.glass-panel {
+  background: rgba(247, 246, 242, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 4px 20px -2px rgba(43, 43, 46, 0.05);
+}
+
+/* Pulsing Signal Glow */
 .glow-signal {
-  box-shadow: 0 0 16px rgba(49, 88, 166, 0.4);
+  box-shadow: 0 0 20px rgba(49, 88, 166, 0.35);
 }
 
-/* Smooth motion control */
+/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
