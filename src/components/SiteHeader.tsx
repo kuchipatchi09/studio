@@ -10,19 +10,19 @@ interface SiteHeaderProps {
 
 export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeTab, onTabChange }) => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/95 backdrop-blur-sm border-b border-line">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/95 backdrop-blur-sm border-b border-line font-sans">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 h-14 flex items-center justify-between">
         {/* Brand Wordmark */}
         <button
           onClick={() => onTabChange("overview")}
-          className="flex items-center gap-0.5 text-base font-mono tracking-tight font-medium text-ink focus-visible:outline-none"
+          className="flex items-center gap-0.5 text-base tracking-tight font-medium text-ink focus-visible:outline-none"
         >
           <span>asterstudio</span>
           <span className="text-signal font-bold">*</span>
         </button>
 
-        {/* 5 Navigation Tabs */}
-        <nav className="flex items-center gap-1 sm:gap-2 text-xs font-mono" aria-label="Main Navigation">
+        {/* Navigation Tabs */}
+        <nav className="flex items-center gap-1 sm:gap-2 text-xs" aria-label="Main Navigation">
           <button
             onClick={() => onTabChange("overview")}
             className={`px-3 py-1.5 rounded-none border transition-all ${

@@ -4,7 +4,7 @@ export const SpecView: React.FC = () => {
   return (
     <div className="pt-20 pb-32 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink font-sans">
       <div className="pb-10 border-b border-line">
-        <div className="text-xs font-mono uppercase text-[#3158A6] font-semibold mb-2">
+        <div className="text-xs uppercase text-[#3158A6] font-semibold mb-2">
           02 // System Specifications
         </div>
         <h1 className="text-3xl sm:text-5xl font-normal tracking-tight mb-4">
@@ -17,11 +17,11 @@ export const SpecView: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
         <div className="border border-line p-8 bg-paper space-y-6">
-          <div className="text-xs font-mono uppercase text-grey-7 pb-3 border-b border-line">
+          <div className="text-xs uppercase text-grey-7 pb-3 border-b border-line">
             ENVIRONMENT &amp; STACK SPEC
           </div>
 
-          <div className="space-y-4 text-xs font-mono">
+          <div className="space-y-4 text-xs">
             <div className="flex justify-between py-2 border-b border-line/60">
               <span className="text-grey-7">Core Architecture</span>
               <span className="text-ink font-medium">React 18 + TypeScript + Vite</span>
@@ -32,7 +32,7 @@ export const SpecView: React.FC = () => {
             </div>
             <div className="flex justify-between py-2 border-b border-line/60">
               <span className="text-grey-7">Primary Typography</span>
-              <span className="text-ink font-medium">Asta Sans (Aster Sans) &amp; Pretendard</span>
+              <span className="text-ink font-medium">Asta Sans (Aster Sans)</span>
             </div>
             <div className="flex justify-between py-2 border-b border-line/60">
               <span className="text-grey-7">Grid Baseline</span>
@@ -46,11 +46,11 @@ export const SpecView: React.FC = () => {
         </div>
 
         <div className="border border-line p-8 bg-paper space-y-6">
-          <div className="text-xs font-mono uppercase text-grey-7 pb-3 border-b border-line">
+          <div className="text-xs uppercase text-grey-7 pb-3 border-b border-line">
             PERFORMANCE &amp; ACCESSIBILITY
           </div>
 
-          <div className="space-y-4 text-xs font-mono">
+          <div className="space-y-4 text-xs">
             <div className="flex justify-between py-2 border-b border-line/60">
               <span className="text-grey-7">Low-Power Chromebook Support</span>
               <span className="text-signal font-semibold">Enabled (requestAnimationFrame pause)</span>

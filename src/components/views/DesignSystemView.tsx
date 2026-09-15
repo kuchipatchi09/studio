@@ -80,7 +80,7 @@ const GREYSCALE_SCALE = [
 ];
 
 export const DesignSystemView: React.FC = () => {
-  const [activeTone, setActiveTone] = useState<AsterTone>(ASTER_TONES[0]); // Default Signal Cobalt
+  const [activeTone, setActiveTone] = useState<AsterTone>(ASTER_TONES[0]);
   const [copied, setCopied] = useState(false);
 
   const handleCopyHex = (hex: string) => {
@@ -93,9 +93,9 @@ export const DesignSystemView: React.FC = () => {
     <div className="pt-20 pb-32 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink font-sans">
       {/* Title & Introduction */}
       <div className="pb-10 border-b border-line">
-        <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#3158A6] font-semibold mb-2">
+        <div className="flex items-center gap-2 text-xs uppercase text-[#3158A6] font-semibold mb-2">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>01 // Design Specification · ASDS v2.0</span>
+          <span>01 // Design Specification · ASDS</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-normal tracking-tight mb-4">
           asterstudio Design System (ASDS)
@@ -109,10 +109,10 @@ export const DesignSystemView: React.FC = () => {
       <section className="py-16 border-b border-line">
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-line mb-8 gap-2">
           <div>
-            <div className="text-xs font-mono uppercase text-grey-7">01 // Chromatic Architecture</div>
+            <div className="text-xs uppercase text-grey-7">01 // Chromatic Architecture</div>
             <h2 className="text-xl sm:text-2xl font-normal mt-1">Celestial &amp; Signal Spectrum</h2>
           </div>
-          <div className="text-xs font-mono text-grey-7">
+          <div className="text-xs text-grey-7">
             색상을 선택하여 활성 상태 확인 및 HEX 복사
           </div>
         </div>
@@ -124,7 +124,7 @@ export const DesignSystemView: React.FC = () => {
             style={{ backgroundColor: activeTone.hex }}
           >
             <div>
-              <div className="flex items-center justify-between text-xs font-mono uppercase tracking-wider opacity-85 pb-4 border-b border-white/20">
+              <div className="flex items-center justify-between text-xs uppercase tracking-wider opacity-85 pb-4 border-b border-white/20">
                 <span>ACTIVE ANCHOR COLOUR</span>
                 <span>ASDS-COLOUR-TOKEN</span>
               </div>
@@ -133,7 +133,7 @@ export const DesignSystemView: React.FC = () => {
                 <h3 className="text-3xl sm:text-4xl font-normal tracking-tight">
                   {activeTone.nameEn}
                 </h3>
-                <p className="text-xs font-mono opacity-85 mt-1">
+                <p className="text-xs opacity-85 mt-1">
                   {activeTone.nameKo}
                 </p>
                 <p className="text-sm sm:text-base mt-6 opacity-95 leading-relaxed max-w-md">
@@ -144,17 +144,17 @@ export const DesignSystemView: React.FC = () => {
 
             <div className="pt-8 border-t border-white/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="text-[11px] font-mono uppercase tracking-wider block opacity-70">
+                <span className="text-[11px] uppercase tracking-wider block opacity-70">
                   SYSTEM SCOPE
                 </span>
-                <span className="text-xs font-mono">{activeTone.domain}</span>
+                <span className="text-xs">{activeTone.domain}</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <span className="text-lg font-mono font-medium">{activeTone.hex}</span>
+                <span className="text-lg font-medium">{activeTone.hex}</span>
                 <button
                   onClick={() => handleCopyHex(activeTone.hex)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-white/40 bg-black/15 hover:bg-black/25 text-xs font-mono uppercase tracking-wider transition-all"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-white/40 bg-black/15 hover:bg-black/25 text-xs uppercase tracking-wider transition-all"
                   aria-label="Copy Hex Code"
                 >
                   {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
@@ -166,7 +166,7 @@ export const DesignSystemView: React.FC = () => {
 
           {/* Right: 7 Spectrum Tones List */}
           <div className="lg:col-span-6 flex flex-col justify-between">
-            <div className="flex items-center justify-between text-xs font-mono text-grey-7 pb-3 border-b border-line">
+            <div className="flex items-center justify-between text-xs text-grey-7 pb-3 border-b border-line">
               <span>ACCENT SPECTRUM // 7 CELESTIAL TONES</span>
               <span>SELECT TO PREVIEW</span>
             </div>
@@ -195,7 +195,7 @@ export const DesignSystemView: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 text-xs font-mono text-grey-9">
+                    <div className="flex items-center gap-2 text-xs text-grey-9">
                       <span>{tone.hex}</span>
                       <Copy
                         className="w-3.5 h-3.5 text-grey-7 hover:text-ink cursor-pointer"
@@ -210,7 +210,7 @@ export const DesignSystemView: React.FC = () => {
               })}
             </div>
 
-            <div className="pt-4 flex items-center justify-between text-xs font-mono text-grey-7">
+            <div className="pt-4 flex items-center justify-between text-xs text-grey-7">
               <span>Base Anchor: Signal Cobalt (#3158A6)</span>
               <span>7 Spectral Tokens Validated</span>
             </div>
@@ -221,7 +221,7 @@ export const DesignSystemView: React.FC = () => {
         <div className="mt-14 pt-8 border-t border-line">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 gap-2">
             <div>
-              <div className="text-xs font-mono uppercase text-grey-7">SURFACE &amp; NEUTRAL SCALE</div>
+              <div className="text-xs uppercase text-grey-7">SURFACE &amp; NEUTRAL SCALE</div>
               <h3 className="text-lg font-normal mt-0.5">Off-Neutral Paper &amp; Ink Palette</h3>
             </div>
             <p className="text-xs text-grey-7 max-w-md sm:text-right">
@@ -242,7 +242,7 @@ export const DesignSystemView: React.FC = () => {
                 />
                 <div className="text-xs font-medium text-ink">{g.name}</div>
                 <div className="text-[10px] text-grey-7 mt-0.5">{g.label}</div>
-                <div className="text-xs font-mono text-grey-7 group-hover:text-ink transition-colors mt-1">
+                <div className="text-xs text-grey-7 group-hover:text-ink transition-colors mt-1">
                   {g.hex}
                 </div>
               </div>
@@ -254,46 +254,40 @@ export const DesignSystemView: React.FC = () => {
       {/* SECTION 02: TYPOGRAPHY SYSTEM */}
       <section className="py-16 border-b border-line">
         <div className="pb-6 border-b border-line mb-8">
-          <div className="text-xs font-mono uppercase text-grey-7">02 // Typography Architecture</div>
-          <h2 className="text-xl sm:text-2xl font-normal mt-1">Asta Sans &amp; Telemetry Typography</h2>
-          <p className="text-xs font-mono text-grey-7 mt-1">Specimen // Asta Sans &amp; Pretendard Variable</p>
+          <div className="text-xs uppercase text-grey-7">02 // Typography Architecture</div>
+          <h2 className="text-xl sm:text-2xl font-normal mt-1">Asta Sans Typography</h2>
+          <p className="text-xs text-grey-7 mt-1">Specimen // Asta Sans</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Specimen Left */}
           <div className="lg:col-span-7 space-y-8">
             <div className="border border-line p-6 bg-paper">
-              <span className="text-xs font-mono text-grey-7 uppercase block mb-2">Studio Wordmark Specimen</span>
+              <span className="text-xs text-grey-7 uppercase block mb-2">Wordmark Specimen</span>
               <div className="text-4xl font-normal tracking-tight text-ink">
                 asterstudio<span className="text-signal font-bold">*</span>
               </div>
-              <p className="text-xs font-mono text-grey-7 mt-2">
+              <p className="text-xs text-grey-7 mt-2">
                 Gathering scattered light. (ASCII 42 Asterisk Wildcard)
               </p>
             </div>
 
             <div className="border border-line p-6 space-y-4">
-              <span className="text-xs font-mono text-grey-7 uppercase block">Primary Typeface: Asta Sans (Aster Sans)</span>
+              <span className="text-xs text-grey-7 uppercase block">Primary Typeface: Asta Sans</span>
               <div className="text-xl font-normal text-ink">Asta Sans Regular &amp; Medium</div>
-              <p className="text-sm font-mono text-grey-7 tracking-wide break-all leading-relaxed">
+              <p className="text-sm text-grey-7 tracking-wide break-all leading-relaxed">
                 AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz<br />
                 0123456789 !?,.;:--&amp;€$@%* [ASCII 42]
               </p>
             </div>
 
             <div className="border border-line p-6 space-y-4">
-              <span className="text-xs font-mono text-grey-7 uppercase block">Korean &amp; CJK Subsetting</span>
+              <span className="text-xs text-grey-7 uppercase block">Korean CJK Subsetting</span>
               <div className="space-y-3 text-sm leading-relaxed">
                 <div>
-                  <span className="text-xs font-mono text-grey-7 block">KOREAN // 한국어</span>
+                  <span className="text-xs text-grey-7 block">KOREAN // 한국어</span>
                   <p className="text-ink font-normal">
                     흩어진 정보와 작은 불편을 발견하고, 사람들의 일상을 밝히는 화면으로 연결합니다.
-                  </p>
-                </div>
-                <div className="pt-2 border-t border-line/60">
-                  <span className="text-xs font-mono text-grey-7 block">ASTRONOMICAL TELEMETRY // 천문 수치</span>
-                  <p className="text-grey-9 text-xs font-mono">
-                    RA 11h 38m 24s · Dec +04° 12' 30" · Local Sidereal Time 14h 22m
                   </p>
                 </div>
               </div>
@@ -302,33 +296,33 @@ export const DesignSystemView: React.FC = () => {
 
           {/* Hierarchy Right */}
           <div className="lg:col-span-5 border border-line p-6 bg-paper space-y-6">
-            <span className="text-xs font-mono text-grey-7 uppercase block pb-3 border-b border-line">
+            <span className="text-xs text-grey-7 uppercase block pb-3 border-b border-line">
               Weights &amp; Hierarchy System
             </span>
 
             <div>
-              <span className="text-xs font-mono text-grey-7 block">300 Light // Editorial Subtitle</span>
+              <span className="text-xs text-grey-7 block">300 Light // Editorial Subtitle</span>
               <div className="text-lg font-light text-ink mt-0.5">
                 Gathering scattered light across campus life.
               </div>
             </div>
 
             <div className="pt-4 border-t border-line/60">
-              <span className="text-xs font-mono text-grey-7 block">400 Regular // Body &amp; Reading Surface</span>
+              <span className="text-xs text-grey-7 block">400 Regular // Body &amp; Reading Surface</span>
               <div className="text-sm font-normal text-ink mt-0.5 leading-relaxed">
                 학생들이 겪는 현실의 작은 불편을 관찰하고 구조화하여 단일 대시보드로 집약합니다.
               </div>
             </div>
 
             <div className="pt-4 border-t border-line/60">
-              <span className="text-xs font-mono text-grey-7 block">500 Medium // Section Header &amp; Index</span>
+              <span className="text-xs text-grey-7 block">500 Medium // Section Header &amp; Index</span>
               <div className="text-base font-medium text-ink mt-0.5">
                 01 // Selected Works &amp; Structural Solutions
               </div>
             </div>
 
             <div className="pt-4 border-t border-line/60">
-              <span className="text-xs font-mono text-grey-7 block">600 SemiBold // Key Metric &amp; Signal</span>
+              <span className="text-xs text-grey-7 block">600 SemiBold // Key Metric &amp; Signal</span>
               <div className="text-base font-semibold text-signal mt-0.5">
                 Purity, Precision, Performance (Zero-Lag PWA)
               </div>
@@ -340,22 +334,22 @@ export const DesignSystemView: React.FC = () => {
       {/* SECTION 03: STRUCTURE & PRIMITIVES */}
       <section className="py-16">
         <div className="pb-6 border-b border-line mb-8">
-          <div className="text-xs font-mono uppercase text-grey-7">03 // Structure &amp; Layout Primitives</div>
+          <div className="text-xs uppercase text-grey-7">03 // Structure &amp; Layout Primitives</div>
           <h2 className="text-xl sm:text-2xl font-normal mt-1">12px Hairline Grid &amp; Tactile Signals</h2>
-          <p className="text-xs font-mono text-grey-7 mt-1">인위적인 그림자를 걷어낸 1px 경계와 물리적 클릭 피드백</p>
+          <p className="text-xs text-grey-7 mt-1">인위적인 그림자를 걷어낸 1px 경계와 물리적 클릭 피드백</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1: 12px Grid */}
           <div className="border border-line p-6 flex flex-col justify-between bg-paper">
             <div>
-              <span className="text-xs font-mono text-signal uppercase block mb-1">GRID SYSTEM // 01</span>
+              <span className="text-xs text-signal uppercase block mb-1">GRID SYSTEM // 01</span>
               <h4 className="text-base font-medium mb-3">12px Discrete Marking Grid</h4>
               <p className="text-xs text-grey-9 leading-relaxed">
                 모눈종이와 천문 좌표계의 정밀 눈금에서 착안하여, 12px 단위의 일관된 공간 비례를 구축합니다.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-line text-xs font-mono text-grey-7 space-y-1">
+            <div className="mt-6 pt-4 border-t border-line text-xs text-grey-7 space-y-1">
               <div className="flex justify-between"><span>GRID PITCH</span><span className="text-ink">12.00 px</span></div>
               <div className="flex justify-between"><span>HAIRLINE</span><span className="text-ink">1.00 px Solid</span></div>
               <div className="flex justify-between"><span>BOUNDARY</span><span className="text-ink">#E7E6E1</span></div>
@@ -365,13 +359,13 @@ export const DesignSystemView: React.FC = () => {
           {/* Card 2: 1px Hairline Boundary */}
           <div className="border border-line p-6 flex flex-col justify-between bg-paper">
             <div>
-              <span className="text-xs font-mono text-signal uppercase block mb-1">BOUNDARY // 02</span>
+              <span className="text-xs text-signal uppercase block mb-1">BOUNDARY // 02</span>
               <h4 className="text-base font-medium mb-3">Zero-Elevation 1px Line</h4>
               <p className="text-xs text-grey-9 leading-relaxed">
                 과장된 섀도우를 일체 배제하고 1px의 명확한 테두리와 톤 대비로만 정보의 위계를 나눕니다.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-line text-xs font-mono text-grey-7 space-y-1">
+            <div className="mt-6 pt-4 border-t border-line text-xs text-grey-7 space-y-1">
               <div className="flex justify-between"><span>Outer Boundary</span><span className="text-ink">1px solid</span></div>
               <div className="flex justify-between"><span>Shadow Policy</span><span className="text-ink">0px (Zero)</span></div>
               <div className="flex justify-between"><span>Corner Radius</span><span className="text-ink">0~2px Sharp</span></div>
@@ -381,17 +375,17 @@ export const DesignSystemView: React.FC = () => {
           {/* Card 3: Control Primitives */}
           <div className="border border-line p-6 flex flex-col justify-between bg-paper">
             <div>
-              <span className="text-xs font-mono text-signal uppercase block mb-1">CONTROLS // 03</span>
+              <span className="text-xs text-signal uppercase block mb-1">CONTROLS // 03</span>
               <h4 className="text-base font-medium mb-3">Tactile Signal Triggers</h4>
               <p className="text-xs text-grey-9 leading-relaxed">
                 물리적 스위치처럼 즉각적인 피드백을 전달하는 반응형 컨트롤 프리미티브입니다.
               </p>
             </div>
             <div className="mt-6 space-y-2">
-              <button className="w-full py-2 bg-ink text-paper text-xs font-mono uppercase tracking-wider hover:bg-signal transition-colors">
+              <button className="w-full py-2 bg-ink text-paper text-xs uppercase tracking-wider hover:bg-signal transition-colors">
                 Signal Active Action
               </button>
-              <button className="w-full py-2 border border-line text-xs font-mono text-ink hover:border-signal transition-colors">
+              <button className="w-full py-2 border border-line text-xs text-ink hover:border-signal transition-colors">
                 Hairline Outlined
               </button>
             </div>
@@ -400,13 +394,13 @@ export const DesignSystemView: React.FC = () => {
           {/* Card 4: Modular Container */}
           <div className="border border-line p-6 flex flex-col justify-between bg-paper">
             <div>
-              <span className="text-xs font-mono text-signal uppercase block mb-1">CONTAINER // 04</span>
+              <span className="text-xs text-signal uppercase block mb-1">CONTAINER // 04</span>
               <h4 className="text-base font-medium mb-3">Datasheet Architecture</h4>
               <p className="text-xs text-grey-9 leading-relaxed">
                 인덱스, 데이터 슬롯, 상태 파라미터가 하나의 규격화된 블록으로 결합되는 컨테이너입니다.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-line text-xs font-mono text-grey-7 space-y-1">
+            <div className="mt-6 pt-4 border-t border-line text-xs text-grey-7 space-y-1">
               <div className="flex justify-between"><span>PADDING RATIO</span><span className="text-ink">Strict 16/24px</span></div>
               <div className="flex justify-between"><span>COMPLIANCE</span><span className="text-signal font-semibold">ASDS-2026</span></div>
               <div className="flex justify-between"><span>LOW-POWER</span><span className="text-ink">Optimized</span></div>

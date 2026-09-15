@@ -9,28 +9,21 @@ interface OverviewViewProps {
 export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
   return (
     <div className="pt-24 pb-32 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink font-sans">
-      {/* Top Meta Line */}
-      <div className="flex items-center justify-between text-xs font-mono text-grey-7 pb-6 border-b border-line">
-        <span className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-signal" />
-          <span>ASTERSTUDIO* EDITORIAL ARCHIVE</span>
-        </span>
-        <span>CHUNGNAM, KOREA · 2026</span>
+      {/* Top Meta Line: Clean & Non-mono */}
+      <div className="flex items-center justify-between text-xs text-grey-7 pb-6 border-b border-line">
+        <span>asterstudio · 2026</span>
+        <span>Chungnam, Korea</span>
       </div>
 
-      {/* Hero Display Typography */}
+      {/* Hero Display Typography (No Italic, 100% Upright Asta Sans) */}
       <div className="py-20 sm:py-28 border-b border-line">
         <div className="max-w-5xl">
-          <div className="text-xs font-mono uppercase tracking-widest text-signal font-semibold mb-6">
-            System &amp; Interface Studio
-          </div>
-
-          <h1 className="text-[clamp(3.2rem,8vw,7.5rem)] font-light leading-[0.95] tracking-tight text-ink">
+          <h1 className="text-[clamp(3.5rem,9vw,8rem)] font-light leading-[0.95] tracking-tight text-ink">
             Gathering <br />
-            <span className="italic text-grey-9 font-normal">scattered</span> light<span className="text-signal font-bold">*</span>
+            scattered light<span className="text-signal font-medium">*</span>
           </h1>
 
-          <p className="text-lg sm:text-2xl text-grey-9 font-light leading-relaxed mt-10 max-w-2xl">
+          <p className="text-xl sm:text-2xl text-grey-9 font-normal leading-relaxed mt-10 max-w-2xl">
             흩어진 정보와 작은 불편 속에서 가능성을 발견하고,
             사람들의 일상을 밝히는 명료한 화면으로 연결합니다.
           </p>
@@ -39,8 +32,8 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
 
       {/* Philosophy Statement: High Negative Space */}
       <div className="py-20 border-b border-line grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        <div className="lg:col-span-4 text-xs font-mono uppercase text-grey-7">
-          01 // Philosophy
+        <div className="lg:col-span-4 text-xs uppercase tracking-wider text-grey-7">
+          01 // 철학
         </div>
 
         <div className="lg:col-span-8 space-y-6">
@@ -61,13 +54,13 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
         </div>
       </div>
 
-      {/* Quick Access Matrix */}
+      {/* Clean Navigation Matrix */}
       <div className="py-16 grid grid-cols-1 md:grid-cols-3 gap-6">
         <button
           onClick={() => onTabChange("projects")}
           className="border border-line p-8 text-left hover:border-ink transition-colors flex flex-col justify-between h-48 bg-paper group"
         >
-          <div className="text-xs font-mono text-grey-7">01 // WORKS</div>
+          <div className="text-xs text-grey-7">01 // WORKS</div>
           <div>
             <div className="text-xl font-medium text-ink group-hover:text-signal transition-colors">
               프로젝트 아카이브 →
@@ -80,7 +73,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
           onClick={() => onTabChange("design")}
           className="border border-line p-8 text-left hover:border-ink transition-colors flex flex-col justify-between h-48 bg-paper group"
         >
-          <div className="text-xs font-mono text-grey-7">02 // DESIGN SYSTEM</div>
+          <div className="text-xs text-grey-7">02 // DESIGN SYSTEM</div>
           <div>
             <div className="text-xl font-medium text-ink group-hover:text-signal transition-colors">
               디자인 시스템 (ASDS) →
@@ -95,7 +88,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
           rel="noopener noreferrer"
           className="border border-line p-8 text-left hover:border-signal transition-colors flex flex-col justify-between h-48 bg-paper group"
         >
-          <div className="flex items-center justify-between text-xs font-mono text-grey-7">
+          <div className="flex items-center justify-between text-xs text-grey-7">
             <span>03 // LIVE PLATFORM</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-grey-7 group-hover:text-signal" />
           </div>

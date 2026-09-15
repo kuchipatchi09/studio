@@ -7,7 +7,7 @@ export const ProjectsView: React.FC = () => {
     <div className="pt-20 pb-32 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink font-sans">
       {/* Title */}
       <div className="pb-10 border-b border-line">
-        <div className="text-xs font-mono uppercase text-signal font-semibold mb-2">
+        <div className="text-xs uppercase text-signal font-semibold mb-2">
           02 // Verified Projects
         </div>
         <h1 className="text-3xl sm:text-5xl font-normal tracking-tight mb-4">
@@ -24,7 +24,7 @@ export const ProjectsView: React.FC = () => {
           <div key={p.slug} className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline hover:bg-line/20 px-2 -mx-2 transition-colors">
             {/* Index & Title */}
             <div className="lg:col-span-4 flex items-baseline gap-4">
-              <span className="text-xs font-mono text-grey-7">{p.index}</span>
+              <span className="text-xs text-grey-7">{p.index}</span>
               <div>
                 <h3 className="text-xl sm:text-2xl font-normal text-ink flex items-center gap-2">
                   <span>{p.title}</span>
@@ -40,7 +40,7 @@ export const ProjectsView: React.FC = () => {
                     </a>
                   )}
                 </h3>
-                <div className="text-xs font-mono text-grey-7 mt-1">
+                <div className="text-xs text-grey-7 mt-1">
                   {p.category} · {p.year}
                 </div>
               </div>
@@ -55,7 +55,7 @@ export const ProjectsView: React.FC = () => {
             </div>
 
             {/* Metadata / Credits */}
-            <div className="lg:col-span-3 text-xs font-mono text-grey-7 lg:text-right space-y-1">
+            <div className="lg:col-span-3 text-xs text-grey-7 lg:text-right space-y-1">
               <div>{p.status || "Completed"}</div>
               {p.credits && (
                 <div className="text-grey-9">{p.credits.join(", ")}</div>

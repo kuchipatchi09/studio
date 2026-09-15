@@ -1,4 +1,4 @@
-﻿/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -11,7 +11,6 @@ export default {
         ink: '#2B2B2E',
         signal: '#3158A6',
         line: '#E7E6E1',
-        mugwort: '#556042',
         'grey-1': '#E7E6E1',
         'grey-3': '#C2C1BB',
         'grey-7': '#888783',
@@ -29,11 +28,11 @@ export default {
           'sans-serif'
         ],
         mono: [
-          '"IBM Plex Mono"',
-          'ui-monospace',
-          'SFMono-Regular',
-          'Menlo',
-          'monospace'
+          '"Asta Sans"',
+          '"Aster Sans"',
+          '"Pretendard Variable"',
+          'Pretendard',
+          'sans-serif'
         ],
       },
       maxWidth: {
