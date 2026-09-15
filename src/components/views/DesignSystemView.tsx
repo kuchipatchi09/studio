@@ -87,8 +87,8 @@ export const DesignSystemView: React.FC = () => {
   return (
     <div className="pt-20 pb-32 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink font-sans">
       {/* Title & Introduction */}
-      <div className="pb-8 border-b border-line">
-        <div className="flex items-center gap-2 text-xs uppercase text-[#3158A6] font-semibold mb-2">
+      <div className="pb-8 border-b border-line relative">
+        <div className="flex items-center gap-2 text-xs uppercase text-signal font-semibold mb-2">
           <Sparkles className="w-3.5 h-3.5" />
           <span>01 Design Specification · ASDS</span>
         </div>
@@ -115,7 +115,7 @@ export const DesignSystemView: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left: Base Anchor Big Card */}
           <div
-            className={`lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between border border-line min-h-[380px] transition-colors duration-200 ${
+            className={`lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between border border-line min-h-[400px] transition-all duration-300 relative overflow-hidden shadow-xs ${
               activeToken.isDarkText ? "text-ink" : "text-paper"
             }`}
             style={{ backgroundColor: activeToken.hex }}
@@ -159,10 +159,10 @@ export const DesignSystemView: React.FC = () => {
                 <span className="text-lg font-medium">{activeToken.hex}</span>
                 <button
                   onClick={() => copyHex(activeToken.hex)}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 border text-xs uppercase tracking-wider transition-all ${
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 border text-xs uppercase tracking-wider transition-all duration-150 active:scale-95 ${
                     activeToken.isDarkText
-                      ? "border-ink/40 bg-ink/5 hover:bg-ink/15 text-ink"
-                      : "border-white/40 bg-black/15 hover:bg-black/25 text-paper"
+                      ? "border-ink/40 bg-ink/10 hover:bg-ink/20 text-ink"
+                      : "border-white/40 bg-white/15 hover:bg-white/25 text-paper"
                   }`}
                   aria-label="Copy Hex Code"
                 >
@@ -187,15 +187,18 @@ export const DesignSystemView: React.FC = () => {
                   <button
                     key={token.id}
                     onClick={() => setActiveToken(token)}
-                    className={`w-full py-3.5 px-3 flex items-center justify-between text-left transition-all ${
+                    className={`w-full py-3.5 px-3.5 flex items-center justify-between text-left transition-all duration-150 relative ${
                       isSelected
-                        ? "bg-line/60 font-medium"
+                        ? "bg-line/70 font-medium pl-4"
                         : "hover:bg-line/30"
                     }`}
                   >
+                    {isSelected && (
+                      <span className="absolute left-0 top-0 bottom-0 w-1 bg-signal" />
+                    )}
                     <div className="flex items-center gap-3">
                       <span
-                        className="w-4 h-4 rounded-full border border-black/10 shrink-0"
+                        className="w-4 h-4 rounded-full border border-black/10 shrink-0 transition-transform duration-150"
                         style={{ backgroundColor: token.hex }}
                       />
                       <div>
@@ -207,7 +210,7 @@ export const DesignSystemView: React.FC = () => {
                     <div className="flex items-center gap-2 text-xs text-grey-9">
                       <span>{token.hex}</span>
                       <Copy
-                        className="w-3.5 h-3.5 text-grey-7 hover:text-ink cursor-pointer"
+                        className="w-3.5 h-3.5 text-grey-7 hover:text-ink cursor-pointer transition-colors"
                         onClick={(e) => {
                           e.stopPropagation();
                           copyHex(token.hex);
@@ -243,10 +246,10 @@ export const DesignSystemView: React.FC = () => {
               <div
                 key={g.name}
                 onClick={() => copyHex(g.hex)}
-                className="border border-line p-3 bg-paper hover:border-grey-3 transition-colors cursor-pointer group"
+                className="border border-line p-3.5 bg-[#FAF9F5] hover:border-grey-3 transition-all duration-150 cursor-pointer group hover:shadow-xs active:scale-98"
               >
                 <div
-                  className={`h-12 w-full mb-3 ${g.border ? "border border-line" : ""}`}
+                  className={`h-12 w-full mb-3 rounded-none transition-transform duration-150 group-hover:scale-[1.02] ${g.border ? "border border-line" : ""}`}
                   style={{ backgroundColor: g.hex }}
                 />
                 <div className="text-xs font-medium text-ink">{g.name}</div>
@@ -359,7 +362,7 @@ export const DesignSystemView: React.FC = () => {
         {/* 2 Big Cards: Border Hierarchy & Control Primitives */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Card 1: 1px Hairline Boundary */}
-          <div className="border border-line bg-[#FAF9F5] p-8 flex flex-col justify-between">
+          <div className="border border-line bg-[#FAF9F5] p-8 flex flex-col justify-between hover:border-grey-3 transition-colors">
             <div>
               <div className="text-xs uppercase text-grey-7 mb-1">BORDER HIERARCHY 02</div>
               <h3 className="text-xl font-normal mb-3">1px Hairline Boundary</h3>
@@ -390,7 +393,7 @@ export const DesignSystemView: React.FC = () => {
           </div>
 
           {/* Card 2: Control Primitives */}
-          <div className="border border-line bg-[#FAF9F5] p-8 flex flex-col justify-between">
+          <div className="border border-line bg-[#FAF9F5] p-8 flex flex-col justify-between hover:border-grey-3 transition-colors">
             <div>
               <div className="text-xs uppercase text-grey-7 mb-1">CONTROL PRIMITIVES 03</div>
               <h3 className="text-xl font-normal mb-3">Tactile Control Triggers</h3>
@@ -400,11 +403,11 @@ export const DesignSystemView: React.FC = () => {
 
               <div className="space-y-4">
                 <div className="flex gap-4">
-                  <button className="flex-1 py-3 bg-signal text-paper text-xs font-medium hover:bg-ink transition-colors flex items-center justify-center gap-1.5">
+                  <button className="flex-1 py-3 bg-signal text-paper text-xs font-medium hover:bg-ink transition-colors flex items-center justify-center gap-1.5 active:scale-98">
                     <span>Primary Action</span>
                     <span>→</span>
                   </button>
-                  <button className="flex-1 py-3 bg-paper border border-line text-xs text-ink hover:border-ink transition-colors">
+                  <button className="flex-1 py-3 bg-paper border border-line text-xs text-ink hover:border-ink transition-colors active:scale-98">
                     Outlined Control
                   </button>
                 </div>

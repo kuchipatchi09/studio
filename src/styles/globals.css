@@ -1,4 +1,4 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -20,6 +20,7 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     word-break: keep-all;
     overflow-wrap: break-word;
+    letter-spacing: -0.01em;
   }
 
   ::selection {
@@ -52,6 +53,27 @@
 
 .hairline-all {
   border: 1px solid var(--color-line);
+}
+
+/* Subtle 12px Grid Background Utility */
+.bg-grid-12 {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(231, 230, 225, 0.45) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231, 230, 225, 0.45) 1px, transparent 1px);
+}
+
+/* Interactive Card Transitions */
+.studio-card {
+  position: relative;
+  background-color: #FAF9F5;
+  border: 1px solid var(--color-line);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.studio-card:hover {
+  border-color: var(--color-grey-3);
+  box-shadow: 0 4px 20px -4px rgba(43, 43, 46, 0.04);
 }
 
 /* Constellation subtle glow */

@@ -79,17 +79,20 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({ onNavigateToDesign }
         {projects.map((p) => (
           <div
             key={p.id}
-            className="border border-line bg-[#FAF9F5] p-8 sm:p-10 flex flex-col justify-between min-h-[380px] hover:border-grey-3 transition-colors"
+            className="border border-line bg-[#FAF9F5] p-8 sm:p-10 flex flex-col justify-between min-h-[390px] hover:border-grey-3 transition-all duration-200 hover:shadow-xs group relative"
           >
             <div>
               {/* Top Meta Line */}
               <div className="flex items-center justify-between text-xs text-grey-7 pb-4 mb-6 border-b border-line">
-                <span>{p.id}</span>
-                <span>{p.category}</span>
+                <span className="font-medium text-ink flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-signal" />
+                  <span>{p.id}</span>
+                </span>
+                <span className="uppercase tracking-wider text-[11px]">{p.category}</span>
               </div>
 
               {/* Title & Description */}
-              <h2 className="text-2xl sm:text-3xl font-normal text-ink tracking-tight mb-3">
+              <h2 className="text-2xl sm:text-3xl font-normal text-ink tracking-tight mb-3 group-hover:text-signal transition-colors duration-150">
                 {p.title}
               </h2>
               <p className="text-xs sm:text-sm text-grey-9 leading-relaxed">
@@ -99,9 +102,9 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({ onNavigateToDesign }
 
             <div className="mt-8 space-y-6">
               {/* Center Signature Preview Box */}
-              <div className="p-4 border border-line bg-paper flex items-center justify-center min-h-[60px]">
+              <div className="p-4 border border-line bg-paper flex items-center justify-center min-h-[64px] transition-colors group-hover:border-grey-3">
                 {p.previewType === "text" && (
-                  <span className="text-xs font-medium text-grey-9 text-center">
+                  <span className="text-xs font-medium text-grey-9 text-center tracking-tight">
                     {p.previewContent}
                   </span>
                 )}
@@ -110,7 +113,7 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({ onNavigateToDesign }
                     {p.previewDots?.map((dot, idx) => (
                       <span
                         key={idx}
-                        className="w-3.5 h-3.5 rounded-full border border-black/10"
+                        className="w-3.5 h-3.5 rounded-full border border-black/10 transition-transform duration-200 hover:scale-125"
                         style={{ backgroundColor: dot }}
                       />
                     ))}
@@ -125,10 +128,10 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({ onNavigateToDesign }
                     href={p.linkUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-ink hover:text-signal inline-flex items-center gap-1.5 transition-colors"
+                    className="text-ink hover:text-signal inline-flex items-center gap-1.5 transition-colors group/link"
                   >
                     <span>{p.linkText}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-grey-7" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-grey-7 group-hover/link:text-signal group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all" />
                   </a>
                 ) : (
                   <button

@@ -9,25 +9,25 @@ interface SiteHeaderProps {
 
 export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeTab, onTabChange }) => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/95 backdrop-blur-sm border-b border-line font-sans">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/90 backdrop-blur-md border-b border-line font-sans transition-colors duration-200">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 h-14 flex items-center justify-between">
         {/* Brand Wordmark */}
         <button
           onClick={() => onTabChange("overview")}
-          className="flex items-center gap-0.5 text-base tracking-tight font-medium text-ink focus-visible:outline-none"
+          className="group flex items-center gap-1 text-base tracking-tight font-medium text-ink focus-visible:outline-none"
         >
           <span>asterstudio</span>
-          <span className="text-signal font-bold">*</span>
+          <span className="text-signal font-bold transition-transform duration-200 group-hover:scale-125">*</span>
         </button>
 
         {/* Navigation Tabs */}
-        <nav className="flex items-center gap-1 sm:gap-2 text-xs" aria-label="Main Navigation">
+        <nav className="flex items-center gap-1 sm:gap-1.5 text-xs" aria-label="Main Navigation">
           <button
             onClick={() => onTabChange("overview")}
-            className={`px-3 py-1.5 rounded-none border transition-all ${
+            className={`px-3 py-1.5 rounded-none border transition-all duration-150 relative ${
               activeTab === "overview"
-                ? "border-ink bg-ink text-paper font-medium"
-                : "border-transparent text-grey-9 hover:text-ink hover:border-line"
+                ? "border-ink bg-ink text-paper font-medium shadow-xs"
+                : "border-transparent text-grey-9 hover:text-ink hover:border-line hover:bg-black/[0.02]"
             }`}
           >
             오버뷰
@@ -35,10 +35,10 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeTab, onTabChange }
 
           <button
             onClick={() => onTabChange("projects")}
-            className={`px-3 py-1.5 rounded-none border transition-all ${
+            className={`px-3 py-1.5 rounded-none border transition-all duration-150 relative ${
               activeTab === "projects"
-                ? "border-ink bg-ink text-paper font-medium"
-                : "border-transparent text-grey-9 hover:text-ink hover:border-line"
+                ? "border-ink bg-ink text-paper font-medium shadow-xs"
+                : "border-transparent text-grey-9 hover:text-ink hover:border-line hover:bg-black/[0.02]"
             }`}
           >
             프로젝트
@@ -46,10 +46,10 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeTab, onTabChange }
 
           <button
             onClick={() => onTabChange("design")}
-            className={`px-3 py-1.5 rounded-none border transition-all ${
+            className={`px-3 py-1.5 rounded-none border transition-all duration-150 relative ${
               activeTab === "design"
-                ? "border-ink bg-ink text-paper font-medium"
-                : "border-transparent text-grey-9 hover:text-ink hover:border-line"
+                ? "border-ink bg-ink text-paper font-medium shadow-xs"
+                : "border-transparent text-grey-9 hover:text-ink hover:border-line hover:bg-black/[0.02]"
             }`}
           >
             디자인
@@ -57,10 +57,10 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeTab, onTabChange }
 
           <button
             onClick={() => onTabChange("spec")}
-            className={`px-3 py-1.5 rounded-none border transition-all ${
+            className={`px-3 py-1.5 rounded-none border transition-all duration-150 relative ${
               activeTab === "spec"
-                ? "border-ink bg-ink text-paper font-medium"
-                : "border-transparent text-grey-9 hover:text-ink hover:border-line"
+                ? "border-ink bg-ink text-paper font-medium shadow-xs"
+                : "border-transparent text-grey-9 hover:text-ink hover:border-line hover:bg-black/[0.02]"
             }`}
           >
             스펙
@@ -68,10 +68,10 @@ export const SiteHeader: React.FC<SiteHeaderProps> = ({ activeTab, onTabChange }
 
           <button
             onClick={() => onTabChange("asterisk")}
-            className={`px-3 py-1.5 rounded-none border transition-all flex items-center gap-0.5 ${
+            className={`px-3 py-1.5 rounded-none border transition-all duration-150 flex items-center gap-0.5 ${
               activeTab === "asterisk"
-                ? "border-signal bg-signal text-paper font-medium"
-                : "border-line text-grey-9 hover:text-signal hover:border-signal"
+                ? "border-signal bg-signal text-paper font-medium shadow-xs"
+                : "border-line text-grey-9 hover:text-signal hover:border-signal/50 hover:bg-signal/5"
             }`}
           >
             <span>asterisk</span>
