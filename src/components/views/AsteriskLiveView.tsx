@@ -65,9 +65,20 @@ export const AsteriskLiveView: React.FC = () => {
       </div>
 
       {/* Frame Container: Exact Recreation of asterisk* UI */}
-      <div className="border border-line bg-paper shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+      <div className="border border-line bg-paper shadow-sm rounded-none overflow-hidden">
+        {/* Device Window Top Bar */}
+        <div className="h-9 bg-[#FAF9F5] border-b border-line px-4 sm:px-6 flex items-center justify-between text-xs">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#E7E6E1] border border-black/10" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#E7E6E1] border border-black/10" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#E7E6E1] border border-black/10" />
+          </div>
+          <span className="text-[11px] text-grey-7 font-mono">cnsh.life/dashboard</span>
+          <div className="w-10" />
+        </div>
+
         {/* asterisk* Mini Header */}
-        <div className="h-14 border-b border-line px-6 sm:px-10 flex items-center justify-between text-xs">
+        <div className="h-14 border-b border-line px-6 sm:px-10 flex items-center justify-between text-xs bg-paper">
           <div className="flex items-center gap-1 font-medium tracking-tight">
             <span className="leading-tight text-xs">aste<br />risk *</span>
           </div>

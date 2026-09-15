@@ -37,11 +37,14 @@ export const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-paper text-ink flex flex-col justify-between">
-      <div>
+    <div className="min-h-screen bg-paper text-ink flex flex-col justify-between relative selection:bg-signal/20">
+      {/* Ambient background atmosphere */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-signal/[0.04] to-transparent pointer-events-none blur-3xl z-0" />
+
+      <div className="relative z-10">
         <SiteHeader activeTab={activeTab} onTabChange={handleTabChange} />
 
-        <main>
+        <main className="transition-opacity duration-200">
           {activeTab === "overview" && <OverviewView onTabChange={handleTabChange} />}
           {activeTab === "projects" && <ProjectsView onNavigateToDesign={() => handleTabChange("design")} />}
           {activeTab === "design" && <DesignSystemView />}
