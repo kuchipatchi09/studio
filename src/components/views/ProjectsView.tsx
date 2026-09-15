@@ -4,10 +4,10 @@ import { PROJECTS } from "../../data/projects";
 
 export const ProjectsView: React.FC = () => {
   return (
-    <div className="pt-20 pb-32 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink">
+    <div className="pt-20 pb-32 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink font-sans">
       {/* Title */}
       <div className="pb-10 border-b border-line">
-        <div className="text-xs font-mono uppercase text-grey-7 mb-2">
+        <div className="text-xs font-mono uppercase text-signal font-semibold mb-2">
           02 // Verified Projects
         </div>
         <h1 className="text-3xl sm:text-5xl font-normal tracking-tight mb-4">
@@ -33,7 +33,7 @@ export const ProjectsView: React.FC = () => {
                       href={p.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-[#556042] hover:underline inline-flex items-center"
+                      className="text-xs text-signal hover:underline inline-flex items-center"
                       aria-label={`Visit ${p.title}`}
                     >
                       <ArrowUpRight className="w-4 h-4" />
@@ -66,7 +66,7 @@ export const ProjectsView: React.FC = () => {
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[#556042] font-medium hover:underline"
+                    className="inline-flex items-center gap-1 text-signal font-medium hover:underline"
                   >
                     <span>Visit Live Site</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

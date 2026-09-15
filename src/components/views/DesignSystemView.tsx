@@ -1,78 +1,86 @@
 import React, { useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Sparkles } from "lucide-react";
 
-interface HeritageTone {
+interface AsterTone {
   id: string;
   nameEn: string;
   nameKo: string;
   desc: string;
   hex: string;
+  domain: string;
 }
 
-const HERITAGE_TONES: HeritageTone[] = [
+const ASTER_TONES: AsterTone[] = [
   {
-    id: "dancheong",
+    id: "signal-cobalt",
+    nameEn: "Signal Cobalt",
+    nameKo: "시그널 코발트 (Base Anchor)",
+    desc: "흩어진 별빛을 모아 길을 밝히는 asterstudio의 핵심 신호색",
+    hex: "#3158A6",
+    domain: "Brand Anchor / Connection / Active Link",
+  },
+  {
+    id: "dancheong-red",
     nameEn: "Dancheong Red",
     nameKo: "단청 레드",
-    desc: "목조 건축과 인장의 깊고 고풍스러운 붉은색",
+    desc: "asterisk* 플랫폼의 중심 액센트이자 일상의 온기를 담은 붉은색",
     hex: "#A33A31",
+    domain: "asterisk* / Core Identity / Priority Alert",
   },
   {
-    id: "persimmon",
-    nameEn: "Ripe Persimmon",
-    nameKo: "홍시 오렌지",
-    desc: "늦가을 볕에 알맞게 익은 감의 묵직하고 따스한 주황색",
-    hex: "#C65D2B",
+    id: "starlight-amber",
+    nameEn: "Starlight Amber",
+    nameKo: "황혼 앰버",
+    desc: "일출·일몰과 태양의 고도각 연산에서 피어나는 따스한 빛",
+    hex: "#D4883A",
+    domain: "Ambient Sun / Morning Horizon",
   },
   {
-    id: "canola",
-    nameEn: "Canola Yellow",
-    nameKo: "유채꽃 옐로우",
-    desc: "봄날의 생기를 머금되 전체 톤에 맞춰 차분하게 정돈한 노란색",
-    hex: "#E0A93B",
+    id: "deep-cyan",
+    nameEn: "Deep Cyan",
+    nameKo: "심해 옥빛",
+    desc: "QPI 주기율표와 다차원 과학 데이터의 정밀한 탐색 톤",
+    hex: "#2C6B74",
+    domain: "QPI Data / Science Matrix",
   },
   {
-    id: "mugwort",
-    nameEn: "Mugwort Green",
-    nameKo: "머그워트 그린 (Base Anchor)",
-    desc: "들풀의 생명력과 흙내음이 밴 절제된 녹색",
+    id: "midnight-navy",
+    nameEn: "Midnight Navy",
+    nameKo: "자정 네이비",
+    desc: "지방 항성시(LST)와 밤하늘 천체 회전을 관측하는 깊은 밤색",
+    hex: "#1B2A4A",
+    domain: "Sidereal Sky / Night Coordinate",
+  },
+  {
+    id: "nebula-purple",
+    nameEn: "Nebula Purple",
+    nameKo: "성운 퍼플",
+    desc: "Dasein; 학술 탐색과 사유의 깊이를 상징하는 지적인 보라색",
+    hex: "#5B3D6B",
+    domain: "Dasein; / Philosophical Search",
+  },
+  {
+    id: "mugwort-leaf",
+    nameEn: "Mugwort Leaf",
+    nameKo: "머그워트 리프",
+    desc: "교정의 생활 속에서 작은 불편을 관찰하는 차분한 자연색",
     hex: "#556042",
-  },
-  {
-    id: "celadon",
-    nameEn: "Celadon Blue",
-    nameKo: "비색 블루",
-    desc: "맑은 고려비색 도자기와 깊은 계곡물에서 느껴지는 옥빛 파란색",
-    hex: "#45707A",
-  },
-  {
-    id: "indigo",
-    nameEn: "Indigo Blue",
-    nameKo: "쪽빛 남색",
-    desc: "천연 쪽으로 여러 번 정성껏 물들인 단정하고 깊은 남색",
-    hex: "#1F3A52",
-  },
-  {
-    id: "gromwell",
-    nameEn: "Gromwell Violet",
-    nameKo: "지치 바이올렛",
-    desc: "전통 지치 뿌리로 염색한 그윽하고 우아한 보라색",
-    hex: "#5C3C58",
+    domain: "Daily Observation / Calm Neutral",
   },
 ];
 
 const GREYSCALE_SCALE = [
-  { name: "Base White", hex: "#F7F6F2", border: true },
-  { name: "Base Black", hex: "#2B2B2E" },
-  { name: "Grey 1", hex: "#E7E6E1", border: true },
-  { name: "Grey 3", hex: "#C2C1BB" },
-  { name: "Grey 7", hex: "#888783" },
-  { name: "Grey 9", hex: "#535356" },
-  { name: "Grey 11", hex: "#3A3A3D" },
+  { name: "Paper White", hex: "#F7F6F2", label: "Surface Base", border: true },
+  { name: "Ink Black", hex: "#2B2B2E", label: "Primary Headline" },
+  { name: "Hairline", hex: "#E7E6E1", label: "1px Grid Line", border: true },
+  { name: "Grey 3", hex: "#C2C1BB", label: "Subtle Marker" },
+  { name: "Grey 7", hex: "#888783", label: "Telemetry & Meta" },
+  { name: "Grey 9", hex: "#535356", label: "Body Reading" },
+  { name: "Grey 11", hex: "#3A3A3D", label: "Deep Boundary" },
 ];
 
 export const DesignSystemView: React.FC = () => {
-  const [activeTone, setActiveTone] = useState<HeritageTone>(HERITAGE_TONES[3]); // Default Mugwort Green
+  const [activeTone, setActiveTone] = useState<AsterTone>(ASTER_TONES[0]); // Default Signal Cobalt
   const [copied, setCopied] = useState(false);
 
   const handleCopyHex = (hex: string) => {
@@ -82,49 +90,50 @@ export const DesignSystemView: React.FC = () => {
   };
 
   return (
-    <div className="pt-20 pb-32 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink">
+    <div className="pt-20 pb-32 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 text-ink font-sans">
       {/* Title & Introduction */}
       <div className="pb-10 border-b border-line">
-        <div className="text-xs font-mono uppercase text-grey-7 mb-2">
-          01 // Design Specification
+        <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#3158A6] font-semibold mb-2">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>01 // Design Specification · ASDS v2.0</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-normal tracking-tight mb-4">
-          Knoblab Universal Design System
+          asterstudio Design System (ASDS)
         </h1>
         <p className="text-sm sm:text-base text-grey-9 max-w-3xl leading-relaxed">
-          물리적 촉각성과 데이터시트의 선형 구조를 디지털 인터페이스로 구현한 핵심 디자인 시스템입니다.
+          흩어진 정보의 조각을 하나의 선형 질서로 연결하고, 물리적 종이의 질감과 정밀한 데이터시트 구조를 화면에 구현한 asterstudio 고유의 설계 규격입니다.
         </p>
       </div>
 
       {/* SECTION 01: COLOUR TOKENS */}
       <section className="py-16 border-b border-line">
-        <div className="flex items-center justify-between pb-6 border-b border-line mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-line mb-8 gap-2">
           <div>
-            <div className="text-xs font-mono uppercase text-grey-7">01 // Colour Tokens</div>
-            <h2 className="text-xl sm:text-2xl font-normal mt-1">Chromatic Architecture</h2>
+            <div className="text-xs font-mono uppercase text-grey-7">01 // Chromatic Architecture</div>
+            <h2 className="text-xl sm:text-2xl font-normal mt-1">Celestial &amp; Signal Spectrum</h2>
           </div>
           <div className="text-xs font-mono text-grey-7">
-            색상을 선택하여 상세 내용 확인 및 복사
+            색상을 선택하여 활성 상태 확인 및 HEX 복사
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left: Base Anchor Big Card */}
           <div
-            className="lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between rounded-none border border-line text-paper transition-colors duration-300 min-h-[380px]"
+            className="lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between rounded-none border border-line text-paper transition-colors duration-300 min-h-[390px]"
             style={{ backgroundColor: activeTone.hex }}
           >
             <div>
-              <div className="flex items-center justify-between text-xs font-mono uppercase tracking-wider opacity-80 pb-4 border-b border-white/20">
-                <span>BASE ANCHOR COLOUR</span>
-                <span>KUDS-COLOUR</span>
+              <div className="flex items-center justify-between text-xs font-mono uppercase tracking-wider opacity-85 pb-4 border-b border-white/20">
+                <span>ACTIVE ANCHOR COLOUR</span>
+                <span>ASDS-COLOUR-TOKEN</span>
               </div>
 
               <div className="mt-8">
                 <h3 className="text-3xl sm:text-4xl font-normal tracking-tight">
                   {activeTone.nameEn}
                 </h3>
-                <p className="text-xs font-mono opacity-80 mt-1">
+                <p className="text-xs font-mono opacity-85 mt-1">
                   {activeTone.nameKo}
                 </p>
                 <p className="text-sm sm:text-base mt-6 opacity-95 leading-relaxed max-w-md">
@@ -133,33 +142,37 @@ export const DesignSystemView: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-8 border-t border-white/20 flex items-center justify-between">
+            <div className="pt-8 border-t border-white/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-wider block opacity-70">
-                  COLOUR CODE
+                  SYSTEM SCOPE
                 </span>
-                <span className="text-lg font-mono font-medium">{activeTone.hex}</span>
+                <span className="text-xs font-mono">{activeTone.domain}</span>
               </div>
 
-              <button
-                onClick={() => handleCopyHex(activeTone.hex)}
-                className="inline-flex items-center gap-2 px-4 py-2 border border-white/40 bg-black/10 hover:bg-black/20 text-xs font-mono uppercase tracking-wider transition-all"
-              >
-                {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? "COPIED" : "COPY HEX"}</span>
-              </button>
+              <div className="flex items-center gap-3">
+                <span className="text-lg font-mono font-medium">{activeTone.hex}</span>
+                <button
+                  onClick={() => handleCopyHex(activeTone.hex)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-white/40 bg-black/15 hover:bg-black/25 text-xs font-mono uppercase tracking-wider transition-all"
+                  aria-label="Copy Hex Code"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copied ? "COPIED" : "COPY"}</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Right: 7 Heritage Tones List */}
+          {/* Right: 7 Spectrum Tones List */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div className="flex items-center justify-between text-xs font-mono text-grey-7 pb-3 border-b border-line">
-              <span>ACCENT SPECTRUM // 7 HERITAGE TONES</span>
+              <span>ACCENT SPECTRUM // 7 CELESTIAL TONES</span>
               <span>SELECT TO PREVIEW</span>
             </div>
 
             <div className="divide-y divide-line border-b border-line">
-              {HERITAGE_TONES.map((tone) => {
+              {ASTER_TONES.map((tone) => {
                 const isSelected = activeTone.id === tone.id;
                 return (
                   <button
@@ -185,7 +198,7 @@ export const DesignSystemView: React.FC = () => {
                     <div className="flex items-center gap-2 text-xs font-mono text-grey-9">
                       <span>{tone.hex}</span>
                       <Copy
-                        className="w-3.5 h-3.5 text-grey-7 hover:text-ink"
+                        className="w-3.5 h-3.5 text-grey-7 hover:text-ink cursor-pointer"
                         onClick={(e) => {
                           e.stopPropagation();
                           handleCopyHex(tone.hex);
@@ -198,8 +211,8 @@ export const DesignSystemView: React.FC = () => {
             </div>
 
             <div className="pt-4 flex items-center justify-between text-xs font-mono text-grey-7">
-              <span>Base Anchor: Mugwort Green (#556042)</span>
-              <span>7 Spectrum Tokens</span>
+              <span>Base Anchor: Signal Cobalt (#3158A6)</span>
+              <span>7 Spectral Tokens Validated</span>
             </div>
           </div>
         </div>
@@ -209,10 +222,10 @@ export const DesignSystemView: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-6 gap-2">
             <div>
               <div className="text-xs font-mono uppercase text-grey-7">SURFACE &amp; NEUTRAL SCALE</div>
-              <h3 className="text-lg font-normal mt-0.5">Off-Neutral Greyscale Palette</h3>
+              <h3 className="text-lg font-normal mt-0.5">Off-Neutral Paper &amp; Ink Palette</h3>
             </div>
             <p className="text-xs text-grey-7 max-w-md sm:text-right">
-              순백색과 완전한 블랙을 배제하고, 아날로그 장비 하우징의 질감을 구현하는 단계별 무채색 스펙트럼입니다.
+              완전한 백색과 인위적인 블랙을 배제하고, 아날로그 인쇄물과 정밀 디스플레이의 가독성을 보장하는 무채색 체계입니다.
             </p>
           </div>
 
@@ -228,7 +241,8 @@ export const DesignSystemView: React.FC = () => {
                   style={{ backgroundColor: g.hex }}
                 />
                 <div className="text-xs font-medium text-ink">{g.name}</div>
-                <div className="text-xs font-mono text-grey-7 group-hover:text-ink transition-colors">
+                <div className="text-[10px] text-grey-7 mt-0.5">{g.label}</div>
+                <div className="text-xs font-mono text-grey-7 group-hover:text-ink transition-colors mt-1">
                   {g.hex}
                 </div>
               </div>
@@ -240,43 +254,46 @@ export const DesignSystemView: React.FC = () => {
       {/* SECTION 02: TYPOGRAPHY SYSTEM */}
       <section className="py-16 border-b border-line">
         <div className="pb-6 border-b border-line mb-8">
-          <div className="text-xs font-mono uppercase text-grey-7">02 // Typography System</div>
-          <h2 className="text-xl sm:text-2xl font-normal mt-1">Unified Type Architecture</h2>
-          <p className="text-xs font-mono text-grey-7 mt-1">Specimen // Asta Sans &amp; Pretendard</p>
+          <div className="text-xs font-mono uppercase text-grey-7">02 // Typography Architecture</div>
+          <h2 className="text-xl sm:text-2xl font-normal mt-1">Asta Sans &amp; Telemetry Typography</h2>
+          <p className="text-xs font-mono text-grey-7 mt-1">Specimen // Asta Sans &amp; Pretendard Variable</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Specimen Left */}
           <div className="lg:col-span-7 space-y-8">
             <div className="border border-line p-6 bg-paper">
-              <span className="text-xs font-mono text-grey-7 uppercase block mb-2">Wordmark</span>
+              <span className="text-xs font-mono text-grey-7 uppercase block mb-2">Studio Wordmark Specimen</span>
               <div className="text-4xl font-normal tracking-tight text-ink">
-                asterstudio<span className="text-[#556042] font-bold">*</span>
+                asterstudio<span className="text-signal font-bold">*</span>
               </div>
-            </div>
-
-            <div className="border border-line p-6 space-y-4">
-              <span className="text-xs font-mono text-grey-7 uppercase block">Typography (Latin)</span>
-              <div className="text-xl font-normal text-ink">Asta Sans (Aster Sans)</div>
-              <p className="text-sm font-mono text-grey-7 tracking-wide break-all">
-                AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz<br />
-                0123456789 !?,.;:--&amp;€$@%*
+              <p className="text-xs font-mono text-grey-7 mt-2">
+                Gathering scattered light. (ASCII 42 Asterisk Wildcard)
               </p>
             </div>
 
             <div className="border border-line p-6 space-y-4">
-              <span className="text-xs font-mono text-grey-7 uppercase block">Multilingual CJK</span>
+              <span className="text-xs font-mono text-grey-7 uppercase block">Primary Typeface: Asta Sans (Aster Sans)</span>
+              <div className="text-xl font-normal text-ink">Asta Sans Regular &amp; Medium</div>
+              <p className="text-sm font-mono text-grey-7 tracking-wide break-all leading-relaxed">
+                AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz<br />
+                0123456789 !?,.;:--&amp;€$@%* [ASCII 42]
+              </p>
+            </div>
+
+            <div className="border border-line p-6 space-y-4">
+              <span className="text-xs font-mono text-grey-7 uppercase block">Korean &amp; CJK Subsetting</span>
               <div className="space-y-3 text-sm leading-relaxed">
                 <div>
                   <span className="text-xs font-mono text-grey-7 block">KOREAN // 한국어</span>
                   <p className="text-ink font-normal">
-                    0과 1, 흑과 백이라는 이분법을 넘어 사용자의 환경에 가장 완벽하게 맞춘 연속적인 웹 경험.
+                    흩어진 정보와 작은 불편을 발견하고, 사람들의 일상을 밝히는 화면으로 연결합니다.
                   </p>
                 </div>
                 <div className="pt-2 border-t border-line/60">
-                  <span className="text-xs font-mono text-grey-7 block">JAPANESE // 日本語</span>
-                  <p className="text-grey-9 text-xs">
-                    ノブを繊細に回すように、あなたの周波数に合わせた途切れのないウェブ体験を提供します。
+                  <span className="text-xs font-mono text-grey-7 block">ASTRONOMICAL TELEMETRY // 천문 수치</span>
+                  <p className="text-grey-9 text-xs font-mono">
+                    RA 11h 38m 24s · Dec +04° 12' 30" · Local Sidereal Time 14h 22m
                   </p>
                 </div>
               </div>
@@ -286,34 +303,34 @@ export const DesignSystemView: React.FC = () => {
           {/* Hierarchy Right */}
           <div className="lg:col-span-5 border border-line p-6 bg-paper space-y-6">
             <span className="text-xs font-mono text-grey-7 uppercase block pb-3 border-b border-line">
-              Weights &amp; Hierarchy
+              Weights &amp; Hierarchy System
             </span>
 
             <div>
-              <span className="text-xs font-mono text-grey-7 block">300 Light // Display Subtitle</span>
+              <span className="text-xs font-mono text-grey-7 block">300 Light // Editorial Subtitle</span>
               <div className="text-lg font-light text-ink mt-0.5">
-                Tuning the Web to Your Frequency.
+                Gathering scattered light across campus life.
               </div>
             </div>
 
             <div className="pt-4 border-t border-line/60">
-              <span className="text-xs font-mono text-grey-7 block">400 Regular // Body Paragraph</span>
+              <span className="text-xs font-mono text-grey-7 block">400 Regular // Body &amp; Reading Surface</span>
               <div className="text-sm font-normal text-ink mt-0.5 leading-relaxed">
-                노브를 섬세하게 돌리듯 사용자의 환경에 최적화된 웹 인터랙션을 제공합니다.
+                학생들이 겪는 현실의 작은 불편을 관찰하고 구조화하여 단일 대시보드로 집약합니다.
               </div>
             </div>
 
             <div className="pt-4 border-t border-line/60">
-              <span className="text-xs font-mono text-grey-7 block">500 Medium // Section Headings</span>
+              <span className="text-xs font-mono text-grey-7 block">500 Medium // Section Header &amp; Index</span>
               <div className="text-base font-medium text-ink mt-0.5">
-                Design System &amp; Component Architecture
+                01 // Selected Works &amp; Structural Solutions
               </div>
             </div>
 
             <div className="pt-4 border-t border-line/60">
-              <span className="text-xs font-mono text-grey-7 block">600 SemiBold // Key Emphasis</span>
-              <div className="text-base font-semibold text-ink mt-0.5">
-                Purity, Progress, Performance
+              <span className="text-xs font-mono text-grey-7 block">600 SemiBold // Key Metric &amp; Signal</span>
+              <div className="text-base font-semibold text-signal mt-0.5">
+                Purity, Precision, Performance (Zero-Lag PWA)
               </div>
             </div>
           </div>
@@ -323,59 +340,59 @@ export const DesignSystemView: React.FC = () => {
       {/* SECTION 03: STRUCTURE & PRIMITIVES */}
       <section className="py-16">
         <div className="pb-6 border-b border-line mb-8">
-          <div className="text-xs font-mono uppercase text-grey-7">03 // Structure &amp; Primitives</div>
-          <h2 className="text-xl sm:text-2xl font-normal mt-1">Hairline &amp; Marking Grid</h2>
-          <p className="text-xs font-mono text-grey-7 mt-1">장식용 그림자를 배제한 1px 보더와 정밀 눈금 시스템</p>
+          <div className="text-xs font-mono uppercase text-grey-7">03 // Structure &amp; Layout Primitives</div>
+          <h2 className="text-xl sm:text-2xl font-normal mt-1">12px Hairline Grid &amp; Tactile Signals</h2>
+          <p className="text-xs font-mono text-grey-7 mt-1">인위적인 그림자를 걷어낸 1px 경계와 물리적 클릭 피드백</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1: 12px Grid */}
           <div className="border border-line p-6 flex flex-col justify-between bg-paper">
             <div>
-              <span className="text-xs font-mono text-grey-7 uppercase block mb-1">SURFACE SYSTEM // 01</span>
-              <h4 className="text-base font-medium mb-3">12px Linear Marking Grid</h4>
+              <span className="text-xs font-mono text-signal uppercase block mb-1">GRID SYSTEM // 01</span>
+              <h4 className="text-base font-medium mb-3">12px Discrete Marking Grid</h4>
               <p className="text-xs text-grey-9 leading-relaxed">
-                12px 간격으로 1px 헤어라인을 연속 전개하여 모호한 장식 대신 물리적인 측정 공간감을 형성합니다.
+                모눈종이와 천문 좌표계의 정밀 눈금에서 착안하여, 12px 단위의 일관된 공간 비례를 구축합니다.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-line text-xs font-mono text-grey-7 space-y-1">
               <div className="flex justify-between"><span>GRID PITCH</span><span className="text-ink">12.00 px</span></div>
-              <div className="flex justify-between"><span>LINE WEIGHT</span><span className="text-ink">1.00 px Solid</span></div>
-              <div className="flex justify-between"><span>OPACITY</span><span className="text-ink">15% Alpha</span></div>
+              <div className="flex justify-between"><span>HAIRLINE</span><span className="text-ink">1.00 px Solid</span></div>
+              <div className="flex justify-between"><span>BOUNDARY</span><span className="text-ink">#E7E6E1</span></div>
             </div>
           </div>
 
           {/* Card 2: 1px Hairline Boundary */}
           <div className="border border-line p-6 flex flex-col justify-between bg-paper">
             <div>
-              <span className="text-xs font-mono text-grey-7 uppercase block mb-1">BORDER HIERARCHY // 02</span>
-              <h4 className="text-base font-medium mb-3">1px Hairline Boundary</h4>
+              <span className="text-xs font-mono text-signal uppercase block mb-1">BOUNDARY // 02</span>
+              <h4 className="text-base font-medium mb-3">Zero-Elevation 1px Line</h4>
               <p className="text-xs text-grey-9 leading-relaxed">
-                인위적인 드롭 섀도우를 일체 사용하지 않고, 오직 1px의 명확한 테두리와 분할선으로 모든 공간을 구분합니다.
+                과장된 섀도우를 일체 배제하고 1px의 명확한 테두리와 톤 대비로만 정보의 위계를 나눕니다.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-line text-xs font-mono text-grey-7 space-y-1">
-              <div className="flex justify-between"><span>01 Container</span><span className="text-ink">1px solid</span></div>
-              <div className="flex justify-between"><span>02 Divide</span><span className="text-ink">divide-y</span></div>
+              <div className="flex justify-between"><span>Outer Boundary</span><span className="text-ink">1px solid</span></div>
               <div className="flex justify-between"><span>Shadow Policy</span><span className="text-ink">0px (Zero)</span></div>
+              <div className="flex justify-between"><span>Corner Radius</span><span className="text-ink">0~2px Sharp</span></div>
             </div>
           </div>
 
           {/* Card 3: Control Primitives */}
           <div className="border border-line p-6 flex flex-col justify-between bg-paper">
             <div>
-              <span className="text-xs font-mono text-grey-7 uppercase block mb-1">CONTROL PRIMITIVES // 03</span>
-              <h4 className="text-base font-medium mb-3">Tactile Control Triggers</h4>
+              <span className="text-xs font-mono text-signal uppercase block mb-1">CONTROLS // 03</span>
+              <h4 className="text-base font-medium mb-3">Tactile Signal Triggers</h4>
               <p className="text-xs text-grey-9 leading-relaxed">
-                아날로그 물리 스위치를 누르는 듯한 즉각적이고 명확한 피드백을 전달하는 핵심 컴포넌트입니다.
+                물리적 스위치처럼 즉각적인 피드백을 전달하는 반응형 컨트롤 프리미티브입니다.
               </p>
             </div>
             <div className="mt-6 space-y-2">
-              <button className="w-full py-2 bg-ink text-paper text-xs font-mono uppercase tracking-wider hover:bg-[#556042] transition-colors">
-                Primary Action
+              <button className="w-full py-2 bg-ink text-paper text-xs font-mono uppercase tracking-wider hover:bg-signal transition-colors">
+                Signal Active Action
               </button>
-              <button className="w-full py-2 border border-line text-xs font-mono text-ink hover:border-ink transition-colors">
-                Outlined Control
+              <button className="w-full py-2 border border-line text-xs font-mono text-ink hover:border-signal transition-colors">
+                Hairline Outlined
               </button>
             </div>
           </div>
@@ -383,16 +400,16 @@ export const DesignSystemView: React.FC = () => {
           {/* Card 4: Modular Container */}
           <div className="border border-line p-6 flex flex-col justify-between bg-paper">
             <div>
-              <span className="text-xs font-mono text-grey-7 uppercase block mb-1">MODULAR SPEC // 04</span>
+              <span className="text-xs font-mono text-signal uppercase block mb-1">CONTAINER // 04</span>
               <h4 className="text-base font-medium mb-3">Datasheet Architecture</h4>
               <p className="text-xs text-grey-9 leading-relaxed">
-                헤더 인덱스, 데이터 슬롯, 하단 링크가 하나의 규격화된 블록으로 결합되는 설계 원칙입니다.
+                인덱스, 데이터 슬롯, 상태 파라미터가 하나의 규격화된 블록으로 결합되는 컨테이너입니다.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-line text-xs font-mono text-grey-7 space-y-1">
-              <div className="flex justify-between"><span>PADDING</span><span className="text-ink">Strict Ratio</span></div>
-              <div className="flex justify-between"><span>RADIUS</span><span className="text-ink">0px Sharp</span></div>
-              <div className="flex justify-between"><span>SPEC STATUS</span><span className="text-[#556042] font-semibold">VALIDATED</span></div>
+              <div className="flex justify-between"><span>PADDING RATIO</span><span className="text-ink">Strict 16/24px</span></div>
+              <div className="flex justify-between"><span>COMPLIANCE</span><span className="text-signal font-semibold">ASDS-2026</span></div>
+              <div className="flex justify-between"><span>LOW-POWER</span><span className="text-ink">Optimized</span></div>
             </div>
           </div>
         </div>
