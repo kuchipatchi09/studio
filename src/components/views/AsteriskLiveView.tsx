@@ -23,7 +23,7 @@ export const AsteriskLiveView: React.FC = () => {
 
         <div className="flex items-center gap-3">
           <a
-            href="https:·cnsh.life"
+            href="https://cnsh.life"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-4 py-2 bg-ink text-paper text-xs font-medium hover:bg-signal transition-colors"

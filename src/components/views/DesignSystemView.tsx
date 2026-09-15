@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { Copy, Check, Sparkles } from "lucide-react";
 
 interface RealToken {
@@ -316,10 +316,10 @@ export const DesignSystemView: React.FC = () => {
               <div className="pt-4 border-t border-line/60">
                 <div className="text-xs text-grey-7 mb-2">JAPANESE · 日本語</div>
                 <div className="text-lg font-normal text-ink mb-1">
-                  あいうえおかきくけこ アイウエオカキクケコ
+                  星の光を一つに集め、日常の不便を解消する明瞭なデジタル体験を設計します。
                 </div>
                 <p className="text-xs text-grey-7">
-                  노브를 섬세하게 돌리듯 당신의 주파수에 맞춘 끊김 없는 웹 경험을 제공합니다.
+                  흩어진 빛을 모아 하나의 질서를 만들듯, 일상의 불편을 가장 명료한 인터페이스와 단단한 시스템으로 연결합니다.
                 </p>
               </div>
             </div>
