@@ -17,14 +17,6 @@ export const OverviewView: React.FC<OverviewViewProps> = ({ onTabChange }) => {
 
       {/* Content Container (z-10 for interactivity) */}
       <div className="relative z-10">
-        {/* Top Meta Line */}
-        <div className="flex items-center justify-between text-xs text-grey-7 pb-6 border-b border-line">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-signal" />
-            <span>asterstudio · 2026</span>
-          </div>
-          <span>Chungnam, Korea</span>
-        </div>
 
         {/* Hero Display Typography: Scaled down to elegant proportion */}
         <div className="py-16 sm:py-24 border-b border-line">
